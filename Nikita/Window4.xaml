@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Nikita.Window4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nikita" d:DataContext="{d:DesignInstance Type=local:Das}"
+        mc:Ignorable="d"
+         Height="450" Width="900">
+    <Grid >
+        <Grid Height="100"  Background="White" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Width="auto" Height="auto">
+            <ListBox Width="50" BorderBrush="White" Background="AliceBlue" ItemsSource="{Binding das}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding taskname}">
+                            
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </Grid>
+        <Grid  Grid.Column="1" Width="auto" Height="auto">
+            <ItemsControl ItemsSource="{Binding das}">
+                <ItemsControl.ItemTemplate>
+                    
+                    <DataTemplate>
+
+                        <ItemsControl  ItemsSource="{Binding Day}">
+                          
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Rows="1" Columns="31" FirstColumn="0"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label   BorderThickness="0"   Background="{Binding color}" Tag="{Binding date}" Foreground="{Binding fore}"   Content="{Binding date}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+
+                        </ItemsControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+
+        </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,174 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <BooleanToVisibilityConverter x:Key="bool2VisibilityConverter" />
+
+    <!--Style and template for the button in the upper left corner of the DataGrid.-->
+    <Style x:Key="cellStyle" TargetType="DataGridCell">
+        <Setter Property="Height" Value="30"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridCell">
+                    <Grid x:Name="d" >
+                        <Grid Height="30">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="77*">
+
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="10">
+
+                                </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" >
+
+                                <Path x:Name="r" Margin="0,0,0,0" Width="Auto"  Data="M320.0379,141.84399 L236.98649,142.30705 237.15843,181.63091 320.55368,182.09378" Fill="Transparent" StrokeThickness="0.5" Stretch="Fill" Stroke="DarkGray"  />
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Path x:Name="P"  Margin="-7,0,0,0" Data="M323.33333,154.20667 L334.00001,154.20667 334.16162,185.58 324.97399,194.72887 320.70831,194.60055" Fill="Transparent" StrokeThickness="0.5"  Stretch="Fill" Stroke="DarkGray" />
+                            </Grid>
+                        </Grid>
+                        <Grid Margin="0 0 10 0">
+                            <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected"  Value="True">
+                            <Setter TargetName="P" Property="Fill" Value="LightBlue" />
+                            <Setter TargetName="r" Property="Fill" Value="LightBlue" />
+                        </Trigger>
+
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--<Style x:Key="dgr" TargetType="{x:Type DataGridRow}">
+                <Style.Triggers>
+                    <Trigger Property="IsSelected" Value="True" >
+                    <Setter TargetName="P" Property="Fill" Value="Red" />
+                    </Trigger>
+                </Style.Triggers>
+        </Style>-->
+    <ControlTemplate x:Key="TextBoxBase" TargetType="{x:Type TextBox}">
+        <Grid>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="77*">
+
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="10">
+
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" >
+
+                    <Path x:Name="r" Margin="0,0,0,0" Width="Auto"  Data="M320.0379,141.84399 L236.98649,142.30705 237.15843,181.63091 320.55368,182.09378" Fill="Transparent" StrokeThickness="2" Stretch="Fill" Stroke="DarkGray"  />
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Path x:Name="P"  Margin="-8,0,0,0" Data="M323.33333,154.20667 L334.00001,154.20667 334.16162,185.58 324.97399,194.72887 320.70831,194.60055" Fill="Transparent" StrokeThickness="2"  Stretch="Fill" Stroke="DarkGray" />
+                </Grid>
+            </Grid>
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"  />
+        </Grid>
+    </ControlTemplate>
+    <Style x:Key="txt" TargetType="{x:Type TextBox}">
+        <Setter Property="OverridesDefaultStyle"
+            Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="77*">
+
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="20">
+
+                                </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="0*"/>
+                                </Grid.ColumnDefinitions>
+                                <Path  Width="Auto"  Data="M320.0379,141.84399 L236.98649,142.30705 237.15843,181.63091 320.55368,182.09378"  Stretch="Fill" Stroke="Black" Grid.ColumnSpan="2"  />
+                            </Grid>
+                            <Grid Grid.Column="1" Margin="-10 0 0 0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="10"/>
+                                    </Grid.RowDefinitions>
+                                    <Path Grid.Row="0" Data="M240,64.04 L279.5,64.04 279.5,123.58" HorizontalAlignment="Left"  Stretch="Fill" Stroke="Black" VerticalAlignment="Top" />
+
+                                    <Path Margin="0 -10 0 0" Grid.Row="1" Data="M280,149.04 L280,158.57999 264.5,167.68114 239.18333,167.68114"  HorizontalAlignment="Left"  Stretch="Fill" Stroke="Black" VerticalAlignment="Top" />
+
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+
+                        <ContentPresenter Content="{TemplateBinding Text}" x:Name="contentPresenterText" HorizontalAlignment="Center" VerticalAlignment="Center" ></ContentPresenter>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="lb" TargetType="{x:Type Label}">
+        <Setter Property="OverridesDefaultStyle"
+            Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Label">
+                    <Grid >
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="77*">
+
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="20">
+
+                                </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid  Grid.Column="0" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="0*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" Background="{TemplateBinding Background}" >
+                                    <Path Fill="{TemplateBinding Background}"  Width="Auto"  Data="M320,142 
+                       L237,142
+                       237,182 
+                       320,182"  Stretch="Fill" Stroke="Black" Grid.ColumnSpan="2"  />
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Column="1" Margin="-10 0 0 0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="10"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0" Background="{TemplateBinding Background}">
+                                        <Path Fill="{TemplateBinding Background}" Grid.Row="0" Data="M240,64.04 L279.5,64.04 279.5,123.58" HorizontalAlignment="Left"  Stretch="Fill" Stroke="Black" VerticalAlignment="Top" />
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <Path Fill="{TemplateBinding Background}" Margin="0 -10 0 0" Grid.Row="1" Data="M280,149.04 L280,158.57999 264.5,167.68114 239.18333,167.68114"  HorizontalAlignment="Left"  Stretch="Fill" Stroke="Black" VerticalAlignment="Top" />
+                                        <!--<Path  Data="M10,15.04 L26.166667,47.746667 9.4947917,59.184088 6.3892468,14.588749 z" Fill="CadetBlue"  Stretch="Fill"    Grid.RowSpan="2" Margin="0,105,0,0"/>-->
+                                        <Rectangle Fill="{TemplateBinding Background}" Height="4"  VerticalAlignment="Top" Width="10" />
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <ContentPresenter Content="{TemplateBinding Content}" ></ContentPresenter>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+</ResourceDictionary>

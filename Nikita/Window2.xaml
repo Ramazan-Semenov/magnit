@@ -1,0 +1,97 @@
+﻿<Window x:Class="Nikita.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nikita"
+        mc:Ignorable="d"
+        Title="Window2" Height="450" Width="804">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml" />
+                <ResourceDictionary Source="Dictionary2.xaml" />
+                <ResourceDictionary Source="Dictionary3.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <Label Background="#b4bdce" Content=" Дата составления" Style="{StaticResource lb}" Grid.Row="0" Margin="10,10,652,30"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" >
+                <Label Background="#b4bdce" Content=" Тип Задачи" Style="{StaticResource lb}" Margin="10,2,687,8"  />
+                <Label Background="#b4bdce" Content=" Отдел" Style="{StaticResource lb}"  Margin="105,2,562,8"/>
+                <Label Background="#b4bdce" Content=" Задача" Style="{StaticResource lb}"  Margin="230,2,327,8"/>
+                <Label Background="#b4bdce" Content="Срок выполнения" Style="{StaticResource lb}"  Margin="491,2,88,8"/>
+                <Label Background="#b4bdce" Content="  Приоритет" Style="{StaticResource lb}"  Margin="713,2,2,8"/>
+
+
+            </Grid>
+            <Grid Grid.Row="1">
+                <ComboBox Style="{StaticResource ComboBoxFlatStyle}" Margin="10,0,696,8">
+                    <ComboBoxItem> Анализ</ComboBoxItem>
+                    <ComboBoxItem>Разаработка</ComboBoxItem>
+                </ComboBox>
+                
+                <!--<Label Background="White" Content=" Анализ" Style="{StaticResource lb}" Margin="10,0,687,8"  />-->
+                <ComboBox Style="{StaticResource ComboBoxFlatStyle}" Margin="105,0,571,8">
+                    <ComboBoxItem>Отчетность</ComboBoxItem>
+                    <ComboBoxItem>Проектирование</ComboBoxItem>
+                </ComboBox>
+                <!--<Label Background="White" Content=" Отчетность" Style="{StaticResource lb}"  Margin="105,0,562,8"/>-->
+                
+                
+                <Label Background="White" Content=" Проект &quot;Вертикальные теплицы&quot; _Магнит" Style="{StaticResource lb}"  Margin="230,0,327,8"/>
+                <DatePicker Background="White" SelectedDate="{Binding DateNow}" Margin="490,2,201,8"/>
+                <ComboBox Style="{StaticResource ComboBoxFlatStyle}" Margin="713,2,21,8">
+                    <ComboBoxItem>Высокий</ComboBoxItem>
+                    <ComboBoxItem>Средний</ComboBoxItem>
+                    <ComboBoxItem>Низкий</ComboBoxItem>
+
+                </ComboBox>
+                
+                <!--<Label Background="White" Content=" Высокий" Style="{StaticResource lb}"  Margin="713,2,2,8"/>-->
+                <!--<Label Background="White" Content=" 28.10.2021" Style="{StaticResource lb}"  Margin="635,2,92,8"/>-->
+                <DatePicker Background="White" Margin="595,2,88,8"></DatePicker>
+
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Label Style="{StaticResource lb}" Background="#b4bdce" Margin="10,2,651,1" Content=" Описание"></Label>
+        </Grid>
+        <Grid Grid.Row="3">
+            <TextBox Style="{StaticResource txt1}" Margin="10,0"></TextBox>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Button Click="Button_Click" HorizontalAlignment="Right" Margin="0 0 10 0" Height="35"  Content="Обновить" Width="120"  >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="21"/>
+
+                    </Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#94d3cb"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+        <!--<DatePickerTextBox Style="{StaticResource DatePickerTextBoxStyle1}" Grid.Row="5" ></DatePickerTextBox>-->
+    </Grid>
+
+</Window>
