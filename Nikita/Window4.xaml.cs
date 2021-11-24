@@ -23,10 +23,10 @@ namespace Nikita
         public Window4()
         {
             InitializeComponent();
-            Add(o:"1");
-            Add(10,20,fo:Brushes.Gray);
-            Add(3, 8);
-            Add(4, 14,fo: Brushes.Aqua);
+            Add(o:"1", taskname: "Дни", count:31);
+            Add(10,20,fo:Brushes.Gray, taskname: "Task_1",count: 31);
+            Add(3, 8, taskname: "Task_2", count: 31);
+            Add(4, 14,fo: Brushes.Aqua, taskname:"Task_3", count: 31);
      
 
 
@@ -41,7 +41,7 @@ namespace Nikita
             get;
             set;
         }
-        public void Add(int from=0, int before=0, SolidColorBrush fo = null, string o="0")
+        public void Add(  int from=0, int before=0, SolidColorBrush fo = null, string o="0", string taskname = "", int count=0,string status="")
         {
             Das h = new Das();
             h.Day = new ObservableCollection<DayModel>();
@@ -58,7 +58,7 @@ namespace Nikita
             {
                 fore = Brushes.Transparent;
             }
-            for (int i = 1, j = 0; i <= 31; ++i, j++)
+            for (int i = 1, j = 0; i <= count; ++i, j++)
                 {
 
                     if ((i >= from) & (i <= before))
@@ -77,14 +77,17 @@ namespace Nikita
 
                         h.Day.Add(new DayModel
                         {
+                          
                             color = System.Windows.Media.Brushes.White,
                             date = j + 1,
                             fore = fore
                         }); ;
                     }
                 }
-            
-                das.Add(h);
+            h.taskname = taskname;
+
+            das.Add(h);
+           
         }
     }
   
@@ -96,6 +99,15 @@ namespace Nikita
             get; set;
         }
         public string taskname { get; set; }
+        public string datestart { get; set; } = "20.01.21";
+
+        public string dateend { get; set; }= "22.02.22";
+
+        public string status { get; set; } = new List<string> {"Принят", "Завершен", "В работе" }[0];
+        public List<string> statuslist { get; set; } = new List<string> { "Принят", "Завершен", "В работе" };
+
+
+
     }
     public class DayModel
     {

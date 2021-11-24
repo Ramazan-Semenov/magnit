@@ -39,6 +39,9 @@ namespace Nikita
                 case "ItemCreate":
                     GridMain.Children.Add(new Window4());
                     break;
+                case "Cont":
+                    GridMain.Children.Add(new Views.ScheduleDay());
+                    break;
                 default:
                     break;
             }

@@ -5,51 +5,118 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nikita" d:DataContext="{d:DesignInstance Type=local:Das}"
         mc:Ignorable="d"
-         Height="450" Width="900">
+         Height="500" Width="900">
     <Grid >
-        <Grid Height="100"  Background="White" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Width="auto" Height="auto">
-            <ListBox Width="50" BorderBrush="White" Background="AliceBlue" ItemsSource="{Binding das}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding taskname}">
-                            
-                        </TextBlock>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
 
-        </Grid>
-        <Grid  Grid.Column="1" Width="auto" Height="auto">
-            <ItemsControl ItemsSource="{Binding das}">
-                <ItemsControl.ItemTemplate>
-                    
-                    <DataTemplate>
+        <Grid>
 
-                        <ItemsControl  ItemsSource="{Binding Day}">
-                          
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <UniformGrid Rows="1" Columns="31" FirstColumn="0"/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="White" >
+               
+
+            </Grid>
+            <Grid Grid.Row="1"   Background="White" >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <ListView Name="phonesList" ItemsSource="{Binding das}" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Задача" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label FontSize="10" Height="22"  Content="{Binding Path=taskname}"  />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+
+                                </GridViewColumn>
+                                <GridViewColumn Header="Начало" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label FontSize="10" Height="22"  Content="{Binding Path=datestart}"  />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+
+                                </GridViewColumn>
+                                <GridViewColumn Header="Конец" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label FontSize="10" Height="22"  Content="{Binding Path=dateend}"  />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+
+                                </GridViewColumn>
+                                <GridViewColumn Header="Статус" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ComboBox Width="100" Background="White" FontSize="10" Height="22" IsEditable="True" ItemsSource="{Binding statuslist}" Text="{Binding status}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <!--<ListBox  BorderBrush="White" Background="AliceBlue" ItemsSource="{Binding das}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label FontSize="10" Height="22" Content="{Binding taskname}">
+                                </Label>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>-->
+                    <!--<ItemsControl ItemsSource="{Binding das}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Text="{Binding taskname}"></Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>-->
+
+                </Grid>
+                <Grid  Grid.Column="1">
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                    <ItemsControl ItemsSource="{Binding das}" Height="337">
+                        <!--<ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Width="40"  Background="White" Content="{Binding date}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>-->
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Label   BorderThickness="0"   Background="{Binding color}" Tag="{Binding date}" Foreground="{Binding fore}"   Content="{Binding date}"/>
+                                    <ItemsControl ItemsSource="{Binding Day}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal"></StackPanel>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Label    BorderThickness="0"   Background="{Binding color}" Tag="{Binding date}" Foreground="{Binding fore}"   Content="{Binding date}">
+
+                                                </Label>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    </ScrollViewer>
+                  
 
-                        </ItemsControl>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-
-
-        </Grid>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>
