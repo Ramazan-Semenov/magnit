@@ -17,9 +17,9 @@ namespace Nikita
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class Window1 : UserControl
+    public partial class ListTask : UserControl
     {
-        public Window1()
+        public ListTask()
         {
             InitializeComponent();
 

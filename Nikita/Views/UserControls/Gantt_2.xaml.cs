@@ -18,9 +18,9 @@ namespace Nikita
     /// <summary>
     /// Логика взаимодействия для Window4.xaml
     /// </summary>
-    public partial class Window4 : UserControl
+    public partial class Gantt_2 : UserControl
     {
-        public Window4()
+        public Gantt_2()
         {
             InitializeComponent();
             Add(o:"1", taskname: "Дни", count:31);

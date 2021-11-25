@@ -34,13 +34,13 @@ namespace Nikita
             {
                 case "ItemHome":
 
-                    GridMain.Children.Add(new Window1());
+                    GridMain.Children.Add(new ListTask());
                     break;
                 case "ItemCreate":
-                    GridMain.Children.Add(new Window4());
+                    GridMain.Children.Add(new Gantt_2());
                     break;
                 case "Cont":
-                    GridMain.Children.Add(new Views.ScheduleDay());
+                    GridMain.Children.Add(new Views.UserControls.Gantt());
                     break;
                 default:
                     break;

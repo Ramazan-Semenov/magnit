@@ -17,9 +17,9 @@ namespace Nikita.Views.UserControls
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Gantt : UserControl
     {
-        public Window1()
+        public Gantt()
         {
             InitializeComponent();
             init();
@@ -40,7 +40,9 @@ namespace Nikita.Views.UserControls
                 label.BorderThickness = new Thickness(0, 0, 1, 1);
                 label.BorderBrush = Brushes.Black;
                 label.Content = string.Format("{0:00}:{1:00}", span.Hours, span.Minutes);
-                _guicGridTimeline.Children.Add(label) ;
+                //_guicGridTimeline.Children.Add(label) ;
+                _guicGridTimeline.Children.Add(label);
+
                 span = span.Add(time);
             }
           
@@ -50,8 +52,9 @@ namespace Nikita.Views.UserControls
             but button = new but { Width = 100, BorderThickness = new Thickness(0, 0, 1, 1), Background = Brushes.LightGreen, Content = task, Margin = new Thickness(0, start*30, 0, -30 * end) };
             button.Description = "sadbhefgvpuiewrbfvpiwerwihvbpiweb";
             button.Click += Window1_Click;
+            //_guicCanvas.Children.Add(button);
 
-            _guicCanvas.Children.Add(button);
+            mm.Children.Add(button);
         }
         private void Window1_Click(object sender, RoutedEventArgs e)
         {

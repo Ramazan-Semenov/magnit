@@ -24,12 +24,12 @@ namespace Nikita
     /// <summary>
     /// Логика взаимодействия для UserControl1.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class FilterDG : UserControl
     {
 
         public DataTable FilteredList{ get; set; }
 
-        public UserControl1( )
+        public FilterDG( )
         {
             InitializeComponent();
            
