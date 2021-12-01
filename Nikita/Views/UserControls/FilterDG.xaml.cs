@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -56,18 +57,18 @@ namespace Nikita
                     select new DateHierarchy
                     {
                         Level = 1,
-                        Value = new DateTime(year.Key, 1, 1),
+                        Value = new DateTime(year.Key, 1, 1).Year,
                         Children = from date in year
                                    group date by date.Month into month
                                    select new DateHierarchy
                                    {
                                        Level = 2,
-                                       Value = new DateTime(year.Key, month.Key, 1),
+                                       Value = new DateTime(year.Key, month.Key, 1).Month,
                                        Children = from day in month
                                                   select new DateHierarchy
                                                   {
                                                       Level = 3,
-                                                      Value = day,
+                                                      Value = day.Day,
                                                       Children = null
                                                   }
                                    }
@@ -285,6 +286,21 @@ namespace Nikita
         {
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //Table.Sort = prop+ " ASC";
+            Table.RowFilter = string.Format(" [StartDate] >= '{0:00.00.yyyy}' AND [StartDate] <= '{0:dd.MM.yyyy}'", new DateTime(2021, 1, 1));
+            //Table.RowFilter = String.Format(CultureInfo.InvariantCulture.DateTimeFormat,
+            //          "StartDate = # {0} #", new DateTime(2021,1,1));
+            gr.ItemsSource = Table; ;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Table.Sort = prop + " DESC";
+            gr.ItemsSource = Table; 
+        }
     }
     class FilterObj : INotifyPropertyChanged
     {
@@ -325,5 +341,21 @@ namespace Nikita
 
 
     }
+    public class DateHierarchy : IHierarchy<DateTime>
+    {
+        //public DateTime Value { get; set; }
+       public int Value { get; set; }
 
+        public IEnumerable<IHierarchy<DateTime>> Children { get; set; }
+
+        public int Level { get; set; }
+    }
+    public interface IHierarchy<T>
+    {
+        //T Value { get; set; }
+        int Value { get; set; }
+        IEnumerable<IHierarchy<T>> Children { get; set; }
+
+        int Level { get; set; }
+    }
 }

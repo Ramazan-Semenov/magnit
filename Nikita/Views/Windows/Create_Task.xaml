@@ -1,10 +1,11 @@
-﻿<Window x:Class="Nikita.Window2"
+﻿<Window x:Class="Nikita.Create_Task"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Window2" Height="450" Width="804">
+        ResizeMode="NoResize"
+        Title="Создание нового запроса" Height="450" Width="804">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -29,6 +30,9 @@
         </Grid.RowDefinitions>
 
         <Label Background="#b4bdce" Content=" Дата составления" Style="{StaticResource lb}" Grid.Row="0" Margin="10,10,652,30"/>
+        <Label x:Name="UserLB" Background="White" Content=" " Style="{StaticResource lb}" Grid.Row="0" Margin="163,34,325,6"/>
+        <Label Background="#b4bdce" Content=" Пользователь" Style="{StaticResource lb}" Grid.Row="0" Margin="11,35,651,5"/>
+
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -38,8 +42,8 @@
                 <Label Background="#b4bdce" Content=" Тип Задачи" Style="{StaticResource lb}" Margin="10,2,687,8"  />
                 <Label Background="#b4bdce" Content=" Отдел" Style="{StaticResource lb}"  Margin="105,2,562,8"/>
                 <Label Background="#b4bdce" Content=" Задача" Style="{StaticResource lb}"  Margin="230,2,327,8"/>
-                <Label Background="#b4bdce" Content="Срок выполнения" Style="{StaticResource lb}"  Margin="491,2,88,8"/>
-                <Label Background="#b4bdce" Content="  Приоритет" Style="{StaticResource lb}"  Margin="713,2,2,8"/>
+                <Label Background="#b4bdce" Content="Срок выполнения" Style="{StaticResource lb}"  Margin="556,2,116,8"/>
+                <Label Background="#b4bdce" Content="  Приоритет" Style="{StaticResource lb}"  Margin="690,2,2,8"/>
 
 
             </Grid>
@@ -58,8 +62,7 @@
 
 
                 <Label Background="White" Content=" Проект &quot;Вертикальные теплицы&quot; _Магнит" Style="{StaticResource lb}"  Margin="230,0,327,8"/>
-                <DatePicker Background="White" SelectedDate="{Binding DateNow}" Margin="490,2,201,8"/>
-                <ComboBox Style="{StaticResource ComboBoxFlatStyle}" Margin="713,2,21,8">
+                <ComboBox Style="{StaticResource ComboBoxFlatStyle}" Margin="691,2,21,8">
                     <ComboBoxItem>Высокий</ComboBoxItem>
                     <ComboBoxItem>Средний</ComboBoxItem>
                     <ComboBoxItem>Низкий</ComboBoxItem>
@@ -68,7 +71,7 @@
 
                 <!--<Label Background="White" Content=" Высокий" Style="{StaticResource lb}"  Margin="713,2,2,8"/>-->
                 <!--<Label Background="White" Content=" 28.10.2021" Style="{StaticResource lb}"  Margin="635,2,92,8"/>-->
-                <DatePicker Background="White" Margin="595,2,88,8"></DatePicker>
+                <DatePicker Background="White" Margin="559,2,115,8"></DatePicker>
 
             </Grid>
         </Grid>
@@ -79,7 +82,7 @@
             <TextBox Style="{StaticResource txt1}" Margin="10,0"></TextBox>
         </Grid>
         <Grid Grid.Row="4">
-            <Button Click="Button_Click" HorizontalAlignment="Right" Margin="0 0 10 0" Height="35"  Content="Добавить" Width="120"  >
+            <Button Click="Button_Click" HorizontalAlignment="Right" Margin="0 0 10 0" Height="35"  Content="Отправить запрос" Width="120"  >
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="21"/>
@@ -91,6 +94,7 @@
                 </Button.Resources>
             </Button>
         </Grid>
+        <DatePicker Grid.Row="0"  Background="White" SelectedDate="{Binding DateNow}" Margin="165,7,490,31"/>
         <!--<DatePickerTextBox Style="{StaticResource DatePickerTextBoxStyle1}" Grid.Row="5" ></DatePickerTextBox>-->
     </Grid>
 </Window>

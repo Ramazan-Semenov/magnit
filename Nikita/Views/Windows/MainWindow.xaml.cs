@@ -41,7 +41,7 @@ namespace Nikita
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(dataTable);
 
-            //M.FilteredList = dataTable;
+            M.FilteredList = dataTable;
 
         }
         //    DataView Table;

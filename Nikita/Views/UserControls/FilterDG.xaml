@@ -70,6 +70,7 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition/>
 
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -137,7 +138,20 @@
 
                         </Grid>
                     </StackPanel>
-                    <StackPanel Grid.Row="2" Grid.Column="1">
+                    <StackPanel Grid.Row="2"  Grid.Column="1">
+                        <Button Click="Button_Click_1" BorderThickness="0" Background="Transparent">
+                            <materialDesign:PackIcon Kind="SortAlphabeticalAscending" Height="28" Width="25"  Foreground="#FF8B8787"  />
+                        </Button>
+                        <Button Click="Button_Click_2" BorderThickness="0" Background="Transparent">
+                            <materialDesign:PackIcon Kind="SortAlphabeticalDescending" Height="28" Width="25"  Foreground="#FF8B8787"  />
+
+                        </Button>
+
+
+                        <TextBox>От</TextBox>
+                        <TextBox>До</TextBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Grid.Column="1">
                         <ListBox 
                                      VirtualizingStackPanel.CacheLengthUnit="Page"
             VirtualizingPanel.IsVirtualizing="True" 
@@ -155,14 +169,14 @@
 
                         </ListBox>
 
-                        <TreeView x:Name="Tree" ItemsSource="{Binding Dates}"
+                        <TreeView    x:Name="Tree" ItemsSource="{Binding Dates}"
           SelectedItemChanged="TreeView_SelectedItemChanged">
                             <TreeView.ItemTemplate>
                                 <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                                     <CheckBox x:Name="Date" />
                                     <HierarchicalDataTemplate.Triggers>
                                         <DataTrigger Binding="{Binding Level}" Value="1">
-                                            <Setter TargetName="Date" Property="Content" Value="{Binding Value, StringFormat=yyyy}" />
+                                            <Setter TargetName="Date" Property="Content" Value="{Binding Value, StringFormat=yy}" />
                                         </DataTrigger>
                                         <DataTrigger Binding="{Binding Level}" Value="2">
                                             <Setter TargetName="Date" Property="Content" Value="{Binding Value, StringFormat=MMMM}" />
@@ -177,7 +191,7 @@
 
 
                     </StackPanel>
-                    <StackPanel Grid.Row="3" Grid.Column="1">
+                    <StackPanel Grid.Row="4" Grid.Column="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>

@@ -6,13 +6,15 @@
         xmlns:local="clr-namespace:Nikita.Views.UserControls"
         mc:Ignorable="d"
         Height="600" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
+    <Grid Margin="-90 0 0 0"> 
+            <Grid.RowDefinitions>
             <RowDefinition Height="32"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Border x:Name="_guicTop" BorderThickness="0,0,0,1" BorderBrush="Black">
-            <Label x:Name="_guitTitle" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <DatePicker x:Name="DateAct"  Width="150" ></DatePicker>
+
+            <!--<Label x:Name="_guitTitle" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
         </Border>
         <ScrollViewer Grid.Row="1" x:Name="_guicScroll"
                       HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
@@ -22,7 +24,7 @@
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel x:Name="_guicGridTimeline" Grid.Column="0" Grid.Row="0">
+                    <StackPanel Background="AliceBlue" x:Name="_guicGridTimeline" Grid.Column="0" Grid.Row="0">
                         
                     </StackPanel>
                     
@@ -32,7 +34,7 @@
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Canvas  x:Name="_guicCanvas" Grid.Column="1" Background="Transparent">
+                    <Canvas   x:Name="_guicCanvas" Grid.Column="1" Background="White">
                         <StackPanel Name="mm">
                             
                         </StackPanel>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nikita.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,7 +45,7 @@ namespace Nikita
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Window2 window = new Window2();
+            Create_Task window = new Create_Task();
             window.ShowDialog();
         }
     }

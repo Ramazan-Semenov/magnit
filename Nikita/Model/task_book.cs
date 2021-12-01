@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nikita
+namespace Nikita.Model
 {
     public class task_book
     {
@@ -18,5 +18,6 @@ namespace Nikita
         public  string executor { get; set; }
         public string priority { get; set; }
         public string status { get; set; }
+        public Users  User { get; set; }
     }
 }

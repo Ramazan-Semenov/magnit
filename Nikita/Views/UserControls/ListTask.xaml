@@ -172,7 +172,7 @@
                     <ColumnDefinition></ColumnDefinition>
 
                 </Grid.ColumnDefinitions>
-                <Label  Style="{StaticResource lb}" Content=" piqusdbvpisadbvphsdbvh" Grid.Column="0" BorderThickness="1" BorderBrush="Black" Margin="5,0,0,10" >
+                <Label  Style="{StaticResource lb}" Content=" Сделать что-то когда-то и с кем-то" Grid.Column="0" BorderThickness="1" BorderBrush="Black" Margin="5,0,0,10" >
                  
                 </Label>
 

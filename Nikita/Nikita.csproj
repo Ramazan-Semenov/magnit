@@ -101,6 +101,7 @@
     <Compile Include="Model\CrudOp\Repository.cs" />
     <Compile Include="Model\CrudOp\SqlColumnAttribute.cs" />
     <Compile Include="Model\task_book.cs" />
+    <Compile Include="Model\Users.cs" />
     <Compile Include="Views\UserControls\Create_Department.xaml.cs">
       <DependentUpon>Create_Department.xaml</DependentUpon>
     </Compile>
@@ -115,8 +116,8 @@
     <Compile Include="Views\UserControls\ListTask.xaml.cs">
       <DependentUpon>ListTask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Windows\Window2.xaml.cs">
-      <DependentUpon>Window2.xaml</DependentUpon>
+    <Compile Include="Views\Windows\Create_Task.xaml.cs">
+      <DependentUpon>Create_Task.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\Window3.xaml.cs">
       <DependentUpon>Window3.xaml</DependentUpon>
@@ -164,7 +165,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Windows\Window2.xaml">
+    <Page Include="Views\Windows\Create_Task.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

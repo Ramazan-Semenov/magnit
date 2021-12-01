@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Dapper;
 using Nikita.Model.CrudOp;
 
-namespace Nikita
+namespace Nikita.Model
 {
     class ViewM
     {
@@ -26,30 +26,24 @@ namespace Nikita
 
             //};
 
-            //InsertStudent(Employes[5]);
         }
         private string sqlConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\lenovo\source\repos\Nikita\Nikita\AppData\Sch.mdf;Integrated Security=True";
 
-        //This method gets all record from student table    
         private List<task_book> Gettask_book()
         {
             List<task_book> students = new List<task_book>();
             using (var connection = new SqlConnection(sqlConnectionString))
             {
                 connection.Open();
-                students = connection.Query<task_book>("Select * from task_book").ToList();
+                students = connection.Query<task_book>("Select * from task_book").AsParallel().ToList();
                 connection.Close();
             }
 
-            //SqlConnection s = new SqlConnection(sqlConnectionString);
-            //s.Open();
-
-
-            //Repository rep = new Repository(s);
+       
             
             return students;
         }
-        private int InsertStudent(task_book student)
+        private int Inserttask_book(task_book student)
         {
              string txt= "INSERT INTO [dbo].[task_book] " +
                 "([Numder], [Date_of_compilation], [from_whom], [task_type], [name_of_the_task], [start_date], [end_date], [executor], [priority], [status])" +
@@ -75,12 +69,6 @@ namespace Nikita
                 return affectedRows;
 
             }
-            //using (var connection = new SqlConnection(sqlConnectionString))
-            //{
-            //    connection.Open();
-            //    var affectedRows = connection.Execute("Insert into task_book (Numder, priority) values (@Numder, @priority)", new { Numder = student.Numder, priority = student.priority });
-            //    connection.Close();
-            //}
         }
 
     }
