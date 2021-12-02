@@ -87,7 +87,6 @@ namespace Nikita.Views.UserControls
                 label.BorderThickness = new Thickness(0, 0, 1, 1);
                 label.BorderBrush = Brushes.Black;
                 label.Content = string.Format("{0:00}:{1:00}", span.Hours, span.Minutes);
-                //_guicGridTimeline.Children.Add(label) ;
                 _guicGridTimeline.Children.Add(label);
 
                 span = span.Add(time);
@@ -101,7 +100,6 @@ namespace Nikita.Views.UserControls
             {
                 if (item.start.Day == SelectedDate.Value.Day)
                 {
-                //    MessageBox.Show(item.start.ToString());
                     InitSchudule(item);
                 }
             }
@@ -129,7 +127,6 @@ namespace Nikita.Views.UserControls
 
             int date_start = schudule.start.Hour * 30;
             int date_end = -(30 * (schudule.start.Hour + count));
-         //   MessageBox.Show(string.Format("{0}-{1}",date_start,date_end));
              but button = new but();
             button.BorderThickness = new Thickness(0, 0, 1, 1);
             button.Background = Brushes.LightGreen;
