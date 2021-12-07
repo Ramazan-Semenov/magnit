@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -28,8 +29,20 @@ namespace Nikita.Views.UserControls
         {
             InitializeComponent();
             ItemsControl itemsControl = new ItemsControl();
-         
             DataContext = new f();
+            UIElement uI=  new UIElement();
+            foreach (var item in new f().Buttons)
+            {
+                TextBox button = new TextBox();
+                button.Margin = item.Margin;
+                button.Text = item.Content.ToString();
+                button.Width = item.Width;
+                button.Height = item.Height;
+
+                LayoutRoot.Children.Add(button);
+
+            }
+
 
             foreach (UIElement uiEle in LayoutRoot.Children)
             {
@@ -86,17 +99,43 @@ namespace Nikita.Views.UserControls
         {
          
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            List<Button> buttons = new List<Button>();
+            List<ButtonS> buttonS1 = new List<ButtonS>();
+            foreach (UIElement uiEle in LayoutRoot.Children)
+            {
+                if (uiEle is TextBox /*|| uiEle is TextBox*/)
+                {
+                    ButtonS buttonS = new ButtonS();
+                    buttonS.Content = (uiEle as TextBox).Text;
+                    buttonS.Margin = (uiEle as TextBox).Margin;
+                    buttonS1.Add(buttonS);
+                    //MessageBox.Show((uiEle as Button).Margin.ToString()) ;
+                }
+          
+            }
+            Button button = buttons.FirstOrDefault();
+
+         
+
+            string output = JsonConvert.SerializeObject(buttonS1);
+            File.WriteAllText(@"C:\Users\lenovo\Desktop\er.json", output);
+          //  MessageBox.Show(button.Margin.ToString()) ;
+        }
     }
     class f
     {
         public f()
         {
-            Buttons.Add(new ButtonS { Content = "safsd", Background = Brushes.Red, Width = 100, Height = 35 });
-            Buttons.Add(new ButtonS { Content = "ccc", Background = Brushes.Green, Width = 100, Height = 35 });
-            Buttons.Add(new ButtonS { Content = "safsd", Background = Brushes.DarkBlue, Width = 100, Height = 35 });
-            Buttons.Add(new ButtonS { Content = "asdvas", Background = Brushes.Black, Width = 100, Height = 35 });
-            Buttons.Add(new ButtonS { Content = "safsd", Background = Brushes.Azure, Width = 100, Height = 35 });
-
+            //Buttons.Add(new ButtonS { Content = "safsd", Background = Brushes.Red, Margin= new Thickness(127, 60, 0, 0) });
+            //Buttons.Add(new ButtonS { Content = "ccc", Background = Brushes.Green, });
+            //Buttons.Add(new ButtonS { Content = "safsd", Background = Brushes.DarkBlue,  });
+            //Buttons.Add(new ButtonS { Content = "asdvas", Background = Brushes.Black, });
+            //Buttons.Add(new ButtonS { Content = "safsd", Background = Brushes.Azure,  });
+            string txt = File.ReadAllText(@"C:\Users\lenovo\Desktop\er.json");
+            Buttons = JsonConvert.DeserializeObject<List<ButtonS>>(txt); ;
             Combobox.Add(new ComboBox { Text = "sdfs", Background = Brushes.Red, Width = 100, Height = 35  });
         }
         public List<ButtonS> Buttons { get; set; } = new List<ButtonS>();
@@ -105,10 +144,11 @@ namespace Nikita.Views.UserControls
 
     class ButtonS
     {
-       public string Content { get; set; }
+       public Object Content { get; set; }
      public   Brush Background { get; set; }
-     public int   Width { get; set; }
-        public int Height  { get; set; }
+     public Thickness Margin { get; set; }
+        public int Width { get; set; } = 100;
+        public int Height { get; set; } = 35; 
     }
 
 }
