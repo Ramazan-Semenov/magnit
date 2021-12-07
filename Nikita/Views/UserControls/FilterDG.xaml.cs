@@ -289,8 +289,8 @@ namespace Nikita
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //Table.Sort = prop+ " ASC";
-            Table.RowFilter = string.Format(" [StartDate] >= '{0:00.00.yyyy}' AND [StartDate] <= '{0:dd.MM.yyyy}'", new DateTime(2021, 1, 1));
+            Table.Sort = prop+ " ASC";
+            //////Table.RowFilter = string.Format(" [StartDate] >= '{0:00.00.yyyy}' AND [StartDate] <= '{0:dd.MM.yyyy}'", new DateTime(2021, 1, 1));
             //Table.RowFilter = String.Format(CultureInfo.InvariantCulture.DateTimeFormat,
             //          "StartDate = # {0} #", new DateTime(2021,1,1));
             gr.ItemsSource = Table; ;

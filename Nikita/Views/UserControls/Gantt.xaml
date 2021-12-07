@@ -13,9 +13,9 @@
         </Grid.RowDefinitions>
         <Grid>
             <DatePicker x:Name="DateAct"  Width="150" Margin="50,0,690,0" ></DatePicker>
-            <ComboBox Margin="0 0 0 5" Height="32" Width="150">
-                <ComboBoxItem>День</ComboBoxItem>
-                <ComboBoxItem>Месяц</ComboBoxItem>
+            <ComboBox Text="День" Margin="0 0 0 5" Height="32" Width="150" SelectionChanged="ComboBox_SelectionChanged">
+                <TextBlock>День</TextBlock>
+                <TextBlock>Месяц</TextBlock>
             </ComboBox>
         </Grid>
         <!--<Label x:Name="_guitTitle" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
@@ -24,7 +24,7 @@
             <Grid>
                 <Grid x:Name="_guicGrid">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Background="AliceBlue" x:Name="_guicGridTimeline" Grid.Column="0" Grid.Row="0">
@@ -34,7 +34,7 @@
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Canvas   x:Name="_guicCanvas" Grid.Column="1" Background="White">

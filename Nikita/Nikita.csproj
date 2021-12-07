@@ -97,11 +97,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\Base\Command.cs" />
+    <Compile Include="Controls\Base\LambdaCommand.cs" />
     <Compile Include="Model\CrudOp\OrmBaseModel.cs" />
     <Compile Include="Model\CrudOp\Repository.cs" />
     <Compile Include="Model\CrudOp\SqlColumnAttribute.cs" />
+    <Compile Include="Model\Role.cs" />
     <Compile Include="Model\task_book.cs" />
     <Compile Include="Model\Users.cs" />
+    <Compile Include="ViewModel\Base\BaseViewModel.cs" />
+    <Compile Include="Views\Pages\Tests.xaml.cs">
+      <DependentUpon>Tests.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Create_Department.xaml.cs">
       <DependentUpon>Create_Department.xaml</DependentUpon>
     </Compile>
@@ -115,6 +122,9 @@
     <Compile Include="Model\Vm.cs" />
     <Compile Include="Views\UserControls\ListTask.xaml.cs">
       <DependentUpon>ListTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\SVCRTS.xaml.cs">
+      <DependentUpon>SVCRTS.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\Create_Task.xaml.cs">
       <DependentUpon>Create_Task.xaml</DependentUpon>
@@ -137,7 +147,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Pages\Tests.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\Create_Department.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\SVCRTS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,6 +244,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Sch.mdf</DependentUpon>
     </Content>
+    <Resource Include="Eb_42x1XgAEJuvf.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
