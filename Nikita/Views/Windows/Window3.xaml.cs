@@ -28,23 +28,23 @@ namespace Nikita
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            GridMain.Children.Clear();
-            GridMain.Children.Clear();
-            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
-            {
-                case "ItemHome":
+            //GridMain.Children.Clear();
+            //GridMain.Children.Clear();
+            //switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            //{
+            //    case "ItemHome":
 
-                    GridMain.Children.Add(new ListTask());
-                    break;
-                case "ItemCreate":
-                    GridMain.Children.Add(new Gantt_2());
-                    break;
-                case "Cont":
-                    GridMain.Children.Add(new Views.UserControls.Gantt());
-                    break;
-                default:
-                    break;
-            }
+            //        GridMain.Children.Add(new ListTask());
+            //        break;
+            //    case "ItemCreate":
+            //        GridMain.Children.Add(new Gantt_2());
+            //        break;
+            //    case "Cont":
+            //        GridMain.Children.Add(new Views.UserControls.Gantt());
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
@@ -61,7 +61,7 @@ namespace Nikita
 
         private void opendb_Click(object sender, RoutedEventArgs e)
         {
-            GridMain.Children.Clear();
+            //GridMain.Children.Clear();
         }
     }
 }

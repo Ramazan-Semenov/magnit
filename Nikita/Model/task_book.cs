@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace Nikita.Model
 {
     public class task_book
     {
-        public int Numder { get; set; }
+        public int Number { get; set; }
         public DateTime Date_of_compilation { get; set; }
         public string from_whom { get; set; }
         public string task_type { get; set; }

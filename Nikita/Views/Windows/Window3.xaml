@@ -31,7 +31,61 @@
     </Window.Triggers>
 
     <Grid Background="#FFDEDEDE">
-        <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="auto"/>
+        <!--<Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="auto"/>-->
+        <TabControl  Margin="75 80 0 0 ">
+            <TabItem Header="Прогнозирование продаж ФРОВ">
+                <TabControl>
+                    <TabItem Header="Новые запросы">
+                        
+                    </TabItem>
+                    <TabItem Header="Текущие задачи">
+                        <Frame Source="/Views/UserControls/ListTask.xaml"></Frame>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            <TabItem Header="Развитие отчетности и разработка">
+                <TabControl>
+                    <TabItem Header="Новые запросы">
+                    </TabItem>
+                    <TabItem Header="Текущие задачи">
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            <TabItem Header="Взаимодействие КМ">
+                <TabControl>
+                    <TabItem Header="Новые запросы">
+                    </TabItem>
+                    <TabItem Header="Текущие задачи">
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            <TabItem Header="Регулярная отчетность">
+                <TabControl>
+                    <TabItem Header="Новые запросы">
+                    </TabItem>
+                    <TabItem Header="Текущие задачи">
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            <TabItem Header="Аналитика">
+                <TabControl>
+                    <TabItem Header="Новые запросы">
+                    </TabItem>
+                    <TabItem Header="Текущие задачи">
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            <TabItem Header="Бюджетирование">
+                <TabControl>
+                    <TabItem Header="Новые запросы">
+                    </TabItem>
+                    <TabItem Header="Текущие задачи">
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+        </TabControl>
+        
+        
         <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>

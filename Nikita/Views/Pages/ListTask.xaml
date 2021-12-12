@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Nikita.ListTask"
+﻿<Page x:Class="Nikita.Views.Pages.ListTask"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,10 +7,10 @@
 	xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
 	xmlns:control="http://filterdatagrid.control.com/2021"
         mc:Ignorable="d"
-        Height="597" Width="904" >
-    <UserControl.Resources>
+        Height="auto" Width="auto" >
+    <Page.Resources>
         <ResourceDictionary Source="/Themes/Dictionary1.xaml"></ResourceDictionary>
-    </UserControl.Resources>
+    </Page.Resources>
     <Grid Margin="0,0,0,4">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -20,7 +20,7 @@
         <StackPanel Background="Transparent" Grid.Row="0" Margin="0,0,0,292" Grid.RowSpan="2">
             <Grid>
 
-                <Button Click="Button_Click"  Content="Создать запрос" MaxWidth="130"   Width="138" Margin="57,12,701,-12">
+                <Button Command="{Binding CreateTask}"  Content="Создать запрос" MaxWidth="130"   Width="138" Margin="57,12,701,-12">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -31,12 +31,12 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button HorizontalAlignment="Right" Width="120" Margin="0,13,9,-13" >
-                    <Button.Content>
+                <Button  Content="Удалить" HorizontalAlignment="Right" Width="100" Margin="0,13,443,-13" >
+                    <!--<Button.Content>
                         <TextBlock FontFamily="SimSun-ExtB" VerticalAlignment="Center">Создать задачу на
 							<LineBreak/>основании
                         </TextBlock>
-                    </Button.Content>
+                    </Button.Content>-->
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -47,7 +47,7 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button HorizontalAlignment="Right"  Content="Обновить" Width="120" Margin="0,12,151,-12" >
+                <Button Command="{Binding EditTask}" HorizontalAlignment="Right"  Content="Редактировать" Width="100" Margin="0,12,575,-12" >
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -89,6 +89,7 @@
             AlternationCount="2"
             AutoGenerateColumns="False"
             Background="Transparent"
+                    SelectedItem="{Binding Selected}"
             CanUserAddRows="False"
                     GridLinesVisibility="None"
             DateFormatString="d"
@@ -96,7 +97,7 @@
             HorizontalGridLinesBrush="LightGray"
             IsReadOnly="True"
                  CellStyle="{StaticResource cellStyle}"   
-            ItemsSource="{Binding Employes, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding Task_Books, UpdateSourceTrigger=PropertyChanged}"
             LoadingRow="FilterDataGridAuto_LoadingRow"
             RowHeaderWidth="40"
             ShowElapsedTime="True"
@@ -183,4 +184,4 @@
         </StackPanel>
 
     </Grid>
-</UserControl>
+</Page>

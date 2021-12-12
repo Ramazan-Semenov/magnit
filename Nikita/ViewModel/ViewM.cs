@@ -46,15 +46,15 @@ namespace Nikita.Model
         private int Inserttask_book(task_book student)
         {
              string txt= "INSERT INTO [dbo].[task_book] " +
-                "([Numder], [Date_of_compilation], [from_whom], [task_type], [name_of_the_task], [start_date], [end_date], [executor], [priority], [status])" +
-                " VALUES (@Numder, @Date_of_compilation, @from_whom, @task_type, @name_of_the_task, @start_date, @end_date, @executor, @priority, @status)";
+                "([Number], [Date_of_compilation], [from_whom], [task_type], [name_of_the_task], [start_date], [end_date], [executor], [priority], [status])" +
+                " VALUES (@Number, @Date_of_compilation, @from_whom, @task_type, @name_of_the_task, @start_date, @end_date, @executor, @priority, @status)";
             using (var connection = new SqlConnection(sqlConnectionString))
             {
                 connection.Open();
                 var affectedRows = connection.Execute(txt,
                     new
                     {
-                        Numder = student.Numder,
+                        Number = student.Number,
                         Date_of_compilation = student.Date_of_compilation,
                         from_whom = student.from_whom,
                         task_type = student.task_type,

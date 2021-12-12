@@ -115,7 +115,7 @@
     <Compile Include="Views\UserControls\FilterDG.xaml.cs">
       <DependentUpon>FilterDG.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\ViewM.cs" />
+    <Compile Include="ViewModel\ViewM.cs" />
     <Compile Include="Views\UserControls\Gantt.xaml.cs">
       <DependentUpon>Gantt.xaml</DependentUpon>
     </Compile>
