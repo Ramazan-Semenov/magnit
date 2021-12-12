@@ -15,15 +15,15 @@ namespace Nikita.Model.CrudOp
         public void Create(task_book item)
         {
             string txt = "INSERT INTO [dbo].[task_book] " +
-               "([Number], [Date_of_compilation], [from_whom], [task_type], [name_of_the_task], [start_date], [end_date], [executor], [priority], [status])" +
-               " VALUES (@Number, @Date_of_compilation, @from_whom, @task_type, @name_of_the_task, @start_date, @end_date, @executor, @priority, @status)";
+               "( [Date_of_compilation], [from_whom], [task_type], [name_of_the_task], [start_date], [end_date], [executor], [priority], [status])" +
+               " VALUES ( @Date_of_compilation, @from_whom, @task_type, @name_of_the_task, @start_date, @end_date, @executor, @priority, @status)";
             using (var connection = new SqlConnection(sqlConnectionString))
             {
                 connection.Open();
                 var affectedRows = connection.Execute(txt,
                     new
                     {
-                        Numder = item.Number,
+                        //Numder = item.Number,
                         Date_of_compilation = item.Date_of_compilation,
                         from_whom = item.from_whom,
                         task_type = item.task_type,

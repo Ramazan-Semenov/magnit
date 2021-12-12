@@ -24,23 +24,23 @@ namespace Nikita
         {
             InitializeComponent();
             //BuildDates();
-            DataContext = new Vm();
+            DataContext = new CreateTaskViewModel();
             //UserLB.Content=" "+System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = MessageBox.Show("Запрос явный?","Подтверждение", MessageBoxButton.YesNoCancel);
-            if (messageBoxResult == MessageBoxResult.Yes)
-            {
-                MessageBox.Show("Заявка отправлена сотруднику");
-                this.Close();
-            }
-          else  if (messageBoxResult == MessageBoxResult.No)
-            {
-                MessageBox.Show("Заявка отправлена координатору");
-                this.Close();
-            }
+          //  MessageBoxResult messageBoxResult = MessageBox.Show("Запрос явный?","Подтверждение", MessageBoxButton.YesNoCancel);
+          //  if (messageBoxResult == MessageBoxResult.Yes)
+          //  {
+          //      MessageBox.Show("Заявка отправлена сотруднику");
+          //      this.Close();
+          //  }
+          //else  if (messageBoxResult == MessageBoxResult.No)
+          //  {
+          //      MessageBox.Show("Заявка отправлена координатору");
+          //      this.Close();
+          //  }
         }
         //public ObservableCollection<IHierarchy<DateTime>> Dates { get; set; }
         //private void BuildDates()

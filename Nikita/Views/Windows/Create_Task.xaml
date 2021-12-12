@@ -43,7 +43,7 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="#b4bdce" Content="Пользователь" />
 
-                <Label Grid.Column="1" BorderThickness="1" BorderBrush="Black"></Label>
+                <Label Content="{Binding User}" Grid.Column="1" BorderThickness="1" BorderBrush="Black"></Label>
             </Grid>
         </Grid>
         <Grid HorizontalAlignment="Left" Grid.Row="0" Width="400" Margin="0,62,0,0">
@@ -54,7 +54,7 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="#b4bdce" Content="Наименование задачи" />
 
-                <TextBox Grid.Column="1" BorderThickness="1" BorderBrush="Black"></TextBox>
+                <TextBox Text="{Binding Task_Book.name_of_the_task}" Grid.Column="1" BorderThickness="1" BorderBrush="Black"></TextBox>
             </Grid>
         </Grid>
         <Grid  Grid.Row="1">
@@ -82,7 +82,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="#b4bdce" Content="Тип задачи" />
-                <TextBox Text="Анализ"  Grid.Column="1" BorderThickness="1" BorderBrush="Black" ></TextBox>
+                <TextBox Text="{Binding Task_Book.task_type}"  Grid.Column="1" BorderThickness="1" BorderBrush="Black" ></TextBox>
             </Grid>
             <Grid Margin="458,59,300,113">
                 <Grid.ColumnDefinitions>
@@ -98,7 +98,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="#b4bdce" Content="Инсполнитель" />
-                <TextBox Text="Сергей"  Grid.Column="1" BorderThickness="1" BorderBrush="Black" />
+                <TextBox Text="{Binding Task_Book.executor}"  Grid.Column="1" BorderThickness="1" BorderBrush="Black" />
             </Grid>
             <Button Content="Прикрипить файл" Margin="6,96,603,74">
 
@@ -106,8 +106,8 @@
             <Label Content="Срок вылонения" Margin="730,0,132,108"></Label>
             <Label Content="Приоритет" Margin="914,0,4,108"></Label>
             <DatePicker   Background="White" SelectedDate="{Binding DateNow}" Margin="732,32,118,133" />
-            <DatePicker   Background="White"  Margin="732,72,118,93" />
-            <ComboBox Margin="909,32,12,138">
+            <DatePicker  SelectedDate="{Binding Task_Book.end_date}" Background="White"  Margin="732,72,118,93" />
+            <ComboBox Text="{Binding Task_Book.status}" Margin="909,32,12,138">
                 <TextBlock Background="Red">Высокий</TextBlock>
                 <TextBlock Background="Yellow" >Средний</TextBlock>
                 <TextBlock Background="Green" >Низкий</TextBlock>
@@ -116,9 +116,9 @@
         </Grid>
         <Grid Grid.Row="2">
             <Label Background="#b4bdce" Content="Описание задачи" Margin="0,0,888,249"></Label>
-            <RichTextBox Margin="8,33,12,63">
-            </RichTextBox>
-            <Button Content="Создать запрос" Margin="868,232,26,11"></Button>
+            <TextBox Text="{Binding desctription}"  Margin="8,33,12,63">
+            </TextBox>
+            <Button Command="{Binding Create}" Content="Создать запрос" Margin="868,232,26,11"></Button>
         </Grid>
     </Grid>
     <!--<Grid >
