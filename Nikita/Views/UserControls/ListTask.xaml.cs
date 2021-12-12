@@ -1,4 +1,5 @@
 ﻿using Nikita.Model;
+using Nikita.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Nikita
         {
             InitializeComponent();
 
-            DataContext = new ViewM();
+            DataContext = new ViewModel.ListTaskViewModel();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -45,8 +46,8 @@ namespace Nikita
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Create_Task window = new Create_Task();
-            window.ShowDialog();
+            //Create_Task window = new Create_Task();
+            //window.ShowDialog();
         }
     }
 }

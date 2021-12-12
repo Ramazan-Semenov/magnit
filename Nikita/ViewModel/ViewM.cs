@@ -6,16 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using Nikita.Model;
 using Nikita.Model.CrudOp;
 
-namespace Nikita.Model
+namespace Nikita.ViewModel
 {
-    class ViewM
+    class ViewM:Base.BaseViewModel
     {
-       public ObservableCollection<task_book> Employes { get; set; }
+        private ObservableCollection<task_book> task_book;
+        public ObservableCollection<task_book> Task_Books { get => task_book; set { task_book = value; OnPropertyChanged(nameof(Task_Books)); } }
+
         public ViewM()
         {
-            Employes = new ObservableCollection<task_book>(Gettask_book());
+            task_book = new ObservableCollection<task_book>(new Model.CrudOp.OperationTaskBook().Gettask_book()) ;
             //            Employes = new ObservableCollection<task_book>
             //{
             //    new task_book{Numder=1, Date_of_compilation=DateTime.Parse("27/10/2021"),from_whom="Пинчук Наталья Александровна", task_type="Анализ", name_of_the_task="Проект 'Вертикальные теплицы'_Магнит_Краснодар", start_date=DateTime.Parse("27/10/2021"), end_date=DateTime.Parse("28/10/2021"), executor="Хахулина Юлия, Маланова Ольга", priority="Высокий", status="Принят" },
@@ -27,49 +30,7 @@ namespace Nikita.Model
             //};
 
         }
-        private string sqlConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\lenovo\source\repos\Nikita\Nikita\AppData\Sch.mdf;Integrated Security=True";
-
-        private List<task_book> Gettask_book()
-        {
-            List<task_book> students = new List<task_book>();
-            using (var connection = new SqlConnection(sqlConnectionString))
-            {
-                connection.Open();
-                students = connection.Query<task_book>("Select * from task_book").AsParallel().ToList();
-                connection.Close();
-            }
-
-       
-            
-            return students;
-        }
-        private int Inserttask_book(task_book student)
-        {
-             string txt= "INSERT INTO [dbo].[task_book] " +
-                "([Number], [Date_of_compilation], [from_whom], [task_type], [name_of_the_task], [start_date], [end_date], [executor], [priority], [status])" +
-                " VALUES (@Number, @Date_of_compilation, @from_whom, @task_type, @name_of_the_task, @start_date, @end_date, @executor, @priority, @status)";
-            using (var connection = new SqlConnection(sqlConnectionString))
-            {
-                connection.Open();
-                var affectedRows = connection.Execute(txt,
-                    new
-                    {
-                        Number = student.Number,
-                        Date_of_compilation = student.Date_of_compilation,
-                        from_whom = student.from_whom,
-                        task_type = student.task_type,
-                        name_of_the_task = student.name_of_the_task,
-                        start_date = student.start_date,
-                        end_date = student.end_date,
-                        executor = student.executor,
-                        priority = student.priority,
-                        status = student.status
-                    });
-                connection.Close();
-                return affectedRows;
-
-            }
-        }
+      
 
     }
 }

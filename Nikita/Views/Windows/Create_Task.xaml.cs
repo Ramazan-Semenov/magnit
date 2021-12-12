@@ -25,7 +25,7 @@ namespace Nikita
             InitializeComponent();
             //BuildDates();
             DataContext = new Vm();
-            UserLB.Content=" "+System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            //UserLB.Content=" "+System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

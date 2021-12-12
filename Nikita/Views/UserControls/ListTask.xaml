@@ -20,7 +20,7 @@
         <StackPanel Background="Transparent" Grid.Row="0" Margin="0,0,0,292" Grid.RowSpan="2">
             <Grid>
 
-                <Button Click="Button_Click"  Content="Создать запрос" MaxWidth="130"   Width="138" Margin="57,12,701,-12">
+                <Button Command="{Binding CreateTask}"  Content="Создать запрос" MaxWidth="130"   Width="138" Margin="57,12,701,-12">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -31,12 +31,12 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button HorizontalAlignment="Right" Width="120" Margin="0,13,9,-13" >
-                    <Button.Content>
+                <Button  Content="Удалить" HorizontalAlignment="Right" Width="100" Margin="0,13,443,-13" >
+                    <!--<Button.Content>
                         <TextBlock FontFamily="SimSun-ExtB" VerticalAlignment="Center">Создать задачу на
 							<LineBreak/>основании
                         </TextBlock>
-                    </Button.Content>
+                    </Button.Content>-->
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -47,7 +47,7 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button HorizontalAlignment="Right"  Content="Обновить" Width="120" Margin="0,12,151,-12" >
+                <Button Command="{Binding EditTask}" HorizontalAlignment="Right"  Content="Редактировать" Width="100" Margin="0,12,575,-12" >
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -96,7 +96,7 @@
             HorizontalGridLinesBrush="LightGray"
             IsReadOnly="True"
                  CellStyle="{StaticResource cellStyle}"   
-            ItemsSource="{Binding Employes, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding Task_Books, UpdateSourceTrigger=PropertyChanged}"
             LoadingRow="FilterDataGridAuto_LoadingRow"
             RowHeaderWidth="40"
             ShowElapsedTime="True"
@@ -164,7 +164,7 @@
         </StackPanel>
         <StackPanel  Grid.Row="2" >
             <Label Style="{StaticResource lb}"  Margin="5,0,6,0" Content="Текст запроса" Background="#e0d6d5" Height="28">
-             
+
             </Label>
             <Grid Height="132">
                 <Grid.ColumnDefinitions>
@@ -173,11 +173,11 @@
 
                 </Grid.ColumnDefinitions>
                 <Label  Style="{StaticResource lb}" Content=" Сделать что-то когда-то и с кем-то" Grid.Column="0" BorderThickness="1" BorderBrush="Black" Margin="5,0,0,10" >
-                 
+
                 </Label>
 
                 <Label Style="{StaticResource lb}"  BorderThickness="1" Content=" История запроса"  BorderBrush="Black" Grid.Column="1" Margin="0,0,6,10" >
-                  
+
                 </Label>
             </Grid>
         </StackPanel>

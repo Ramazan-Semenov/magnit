@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Nikita.Model.CrudOp
 {
-    public class CrudOperations : DBConnected, ICrudOperations<task_book>
+    public class CrudOperations : ConnectionDataBase, ICrudOperations<task_book>
     {
         private bool disposedValue;
 

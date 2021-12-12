@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Nikita.Controls.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nikita.Controls.Base
+namespace Nikita.Controls
 {
     internal class LambdaCommand : Command
     {
