@@ -33,9 +33,7 @@ namespace Nikita
             Task_Book.Date_of_compilation = DateTime.Now;
 
             new Model.CrudOp.CrudOperations().Create(Task_Book);
-                MessageBox.Show("Запись добавлена");
-
-          
+                MessageBox.Show("Запись добавлена");         
         }
 
     }

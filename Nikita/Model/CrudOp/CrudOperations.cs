@@ -117,7 +117,7 @@ WHERE Number = @Number";
                 connection.Open();
                 var affectedRows = connection.Execute(txt, new
                 {
-                    Numder = item.Number,
+                    Number = item.Number,
                     Date_of_compilation = item.Date_of_compilation,
                     from_whom = item.from_whom,
                     task_type = item.task_type,

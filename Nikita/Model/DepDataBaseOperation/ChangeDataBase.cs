@@ -16,7 +16,7 @@ namespace Nikita.Model.DepDataBaseOperation
         {
             _con = new ConnectionDataBase();
         }
-        public void Start()
+        public void Start( )
         {
 
             var mapper = new ModelToTableMapper<task_book>();

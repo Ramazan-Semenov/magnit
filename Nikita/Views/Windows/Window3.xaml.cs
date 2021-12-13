@@ -19,10 +19,12 @@ namespace Nikita
     /// </summary>
     public partial class Window3 : Window
     {
+       
         public Window3()
         {
             InitializeComponent();
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            //DataContext = new ViewModel.ListTaskViewModel();
             v.Content = userName;
         }
 

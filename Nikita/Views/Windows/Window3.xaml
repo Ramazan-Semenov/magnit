@@ -36,10 +36,10 @@
             <TabItem Header="Прогнозирование продаж ФРОВ">
                 <TabControl>
                     <TabItem Header="Новые запросы">
-                        
+                        <Frame Source="/Views/Pages/ListTask.xaml"></Frame>
+
                     </TabItem>
                     <TabItem Header="Текущие задачи">
-                        <Frame Source="/Views/UserControls/ListTask.xaml"></Frame>
                     </TabItem>
                 </TabControl>
             </TabItem>
@@ -47,7 +47,9 @@
                 <TabControl>
                     <TabItem Header="Новые запросы">
                     </TabItem>
-                    <TabItem Header="Текущие задачи">
+                    <TabItem  Header="Текущие задачи">
+                     
+
                     </TabItem>
                 </TabControl>
             </TabItem>

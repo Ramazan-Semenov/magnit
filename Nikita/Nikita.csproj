@@ -121,6 +121,7 @@
     <Compile Include="Model\task_book.cs" />
     <Compile Include="Model\Users.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModel\EditTaskViewModel.cs" />
     <Compile Include="ViewModel\ListTaskViewModel.cs" />
     <Compile Include="Views\Pages\ListTask.xaml.cs">
       <DependentUpon>ListTask.xaml</DependentUpon>
@@ -146,6 +147,9 @@
     </Compile>
     <Compile Include="Views\Windows\Create_Task.xaml.cs">
       <DependentUpon>Create_Task.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\EditTask.xaml.cs">
+      <DependentUpon>EditTask.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\Window3.xaml.cs">
       <DependentUpon>Window3.xaml</DependentUpon>
@@ -180,6 +184,10 @@
     <Page Include="Views\UserControls\SVCRTS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\EditTask.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -266,7 +274,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Sch.mdf</DependentUpon>
     </Content>
-    <Resource Include="Eb_42x1XgAEJuvf.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

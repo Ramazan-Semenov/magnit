@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nikita.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,21 +14,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Nikita.Views.UserControls
+namespace Nikita.Views.Windows
 {
     /// <summary>
     /// Логика взаимодействия для EditTask.xaml
     /// </summary>
-    public partial class EditTask : UserControl
+    public partial class EditTask : Window
     {
         public EditTask()
         {
             InitializeComponent();
+            DataContext = new ViewModel.EditTaskViewModel();
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        public EditTask(task_book _Book)
         {
-
+            InitializeComponent();
+            DataContext = new ViewModel.EditTaskViewModel(_Book);
         }
+
     }
 }

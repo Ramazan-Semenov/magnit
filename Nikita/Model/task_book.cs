@@ -19,6 +19,6 @@ namespace Nikita.Model
         public  string executor { get; set; }
         public string priority { get; set; }
         public string status { get; set; }
-        public Users  User { get; set; }
+        public string  User { get; set; }
     }
 }
