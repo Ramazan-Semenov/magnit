@@ -31,8 +31,8 @@
     </Window.Triggers>
 
     <Grid Background="#FFDEDEDE">
-        <!--<Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="auto"/>-->
-        <TabControl  Margin="75 80 0 0 ">
+        <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="auto"/>
+        <TabControl x:Name="Tab"  Margin="75 80 0 0 ">
             <TabItem Header="Прогнозирование продаж ФРОВ">
                 <TabControl>
                     <TabItem Header="Новые запросы">
@@ -40,6 +40,8 @@
 
                     </TabItem>
                     <TabItem Header="Текущие задачи">
+                        <Frame Source="/Views/Pages/ListTask.xaml"></Frame>
+
                     </TabItem>
                 </TabControl>
             </TabItem>

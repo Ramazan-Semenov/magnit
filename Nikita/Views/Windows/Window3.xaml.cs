@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,34 +21,62 @@ namespace Nikita
     /// </summary>
     public partial class Window3 : Window
     {
-       
+        string userName="";
         public Window3()
         {
             InitializeComponent();
-            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+             userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+
+            
+           GetEntityList();
             //DataContext = new ViewModel.ListTaskViewModel();
             v.Content = userName;
         }
+        public IEnumerable<Model.Role> GetEntityList()
+        {
+            List<Model.Role> students = new List<Model.Role>();
+            string txt = @"select Role_name from Users
 
+join[User_Role] on Users.Id = User_Role.[User]
+join[Role] on User_Role.Role =[Role].Id
+
+where Users.[Name]= @N";
+            using (var connection = new SqlConnection(new Model.ConnectionDataBase().sqlConnectionString))
+            {
+                connection.Open();
+                students = connection.Query<Model.Role>(txt,new { N= userName }).ToList();
+                connection.Close();
+            }
+
+            foreach (var item in students)
+            {
+               if(item.Role_Name=="Админ")
+                {
+                    Tab.Visibility = Visibility.Visible;
+                }    
+            }
+
+            return students;
+        }
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //GridMain.Children.Clear();
-            //GridMain.Children.Clear();
-            //switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
-            //{
-            //    case "ItemHome":
+            GridMain.Children.Clear();
+            GridMain.Children.Clear();
+            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            {
+                case "ItemHome":
 
-            //        GridMain.Children.Add(new ListTask());
-            //        break;
-            //    case "ItemCreate":
-            //        GridMain.Children.Add(new Gantt_2());
-            //        break;
-            //    case "Cont":
-            //        GridMain.Children.Add(new Views.UserControls.Gantt());
-            //        break;
-            //    default:
-            //        break;
-            //}
+                    GridMain.Children.Add(new ListTask());
+                    break;
+                case "ItemCreate":
+                    GridMain.Children.Add(new Gantt_2());
+                    break;
+                case "Cont":
+                    GridMain.Children.Add(new Views.UserControls.Gantt());
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)

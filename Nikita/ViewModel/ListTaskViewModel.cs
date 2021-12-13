@@ -57,8 +57,9 @@ namespace Nikita.ViewModel
 
             var dep = new SqlTableDependency<task_book>(_con.sqlConnectionString, "task_book", mapper: mapper);
 
-            if (dep.Status== TableDependency.SqlClient.Base.Enums.TableDependencyStatus.None)
+            if (dep.Status!= TableDependency.SqlClient.Base.Enums.TableDependencyStatus.Starting)
             {
+                MessageBox.Show("d");
                 dep.OnChanged += Changed;
                 dep.Start();
             }
