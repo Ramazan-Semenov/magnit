@@ -11,7 +11,25 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="LayoutRoot" Background="GreenYellow">
+        <Grid x:Name="LayoutRoot" >
+            <Grid.Background>
+                <DrawingBrush x:Name="GridBrush" Viewport="0,0,20,20" ViewportUnits="Absolute" TileMode="Tile">
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <GeometryDrawing Brush="#CCCCCC">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry Rect="0,0 20,1"/>
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#CCCCCC">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry Rect="0,0 1,20"/>
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Grid.Background>
             <!--<Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="48,61,0,0" Name="button1" VerticalAlignment="Top" Width="75" />
             <Label MouseDoubleClick="label1_MouseDoubleClick" Content="Label" Height="28" HorizontalAlignment="Left" Margin="65,114,0,0" Name="label1" VerticalAlignment="Top" />
             <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="127,60,0,0" Name="button2" VerticalAlignment="Top" Width="58" />
@@ -20,9 +38,8 @@
 
         </Grid>
         <Grid Grid.Column="1">
-            <Button Width="140" Height="30" Content="Save" Click="Button_Click">
-
-            </Button>
+            
+            <Button Width="140" Height="30" Content="Save" Click="Button_Click"/>
 
         </Grid>
     </Grid>

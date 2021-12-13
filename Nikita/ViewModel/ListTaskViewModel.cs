@@ -42,8 +42,9 @@ namespace Nikita.ViewModel
 
             //};
             _con = new ConnectionDataBase();
-            Thread thread = new Thread(Start);
-            thread.Start();
+            //Thread thread = new Thread(Start);
+            //thread.Start();
+            Start();
         }
         private Model.ConnectionDataBase _con;
       
@@ -59,7 +60,7 @@ namespace Nikita.ViewModel
 
             if (dep.Status!= TableDependency.SqlClient.Base.Enums.TableDependencyStatus.Starting)
             {
-                MessageBox.Show("d");
+                //MessageBox.Show("d");
                 dep.OnChanged += Changed;
                 dep.Start();
             }
