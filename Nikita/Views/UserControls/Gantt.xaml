@@ -6,18 +6,67 @@
         xmlns:local="clr-namespace:Nikita.Views.UserControls"
         mc:Ignorable="d"
         Height="600" Width="800">
-    <Grid Margin="-90 0 0 0"> 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <ListView Name="phonesList" ItemsSource="{Binding das}" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Задача" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label FontSize="10" Height="22"  Content="{Binding Path=task}"  />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                        </GridViewColumn>
+                        <GridViewColumn Header="Начало" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label FontSize="10" Height="22"  Content="{Binding Path=start}"  />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                        </GridViewColumn>
+                        <GridViewColumn Header="Конец" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label FontSize="10" Height="22"  Content="{Binding Path=end}"  />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                        </GridViewColumn>
+                        <GridViewColumn Header="Статус" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox Tag="{Binding id}"  SelectionChanged="ComboBox_Selected" Width="100" Background="White" FontSize="10" Height="22" IsEditable="True" ItemsSource="{Binding statuslist}" Text="{Binding Status}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    <Grid Grid.Column="1" Margin="0 0 0 0"> 
             <Grid.RowDefinitions>
             <RowDefinition Height="32"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid>
-            <DatePicker x:Name="DateAct"  Width="150" Margin="50,0,690,0" ></DatePicker>
-            <ComboBox Text="День" Margin="0 0 0 5" Height="32" Width="150" SelectionChanged="ComboBox_SelectionChanged">
+            <DatePicker x:Name="DateAct"  Width="150" Margin="0" HorizontalAlignment="Left" ></DatePicker>
+            <ComboBox  Text="День" Margin="100 0 0 0" Height="32" Width="150" SelectionChanged="ComboBox_SelectionChanged">
                 <TextBlock>День</TextBlock>
                 <TextBlock>Месяц</TextBlock>
             </ComboBox>
-        </Grid>
+                <!--<ComboBox  Height="32" Width="150" >
+                    <CheckBox Content="sdcs"/>
+                    <CheckBox Content="dsdfsd"/>
+                </ComboBox>-->
+            </Grid>
         <!--<Label x:Name="_guitTitle" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
         <ScrollViewer Grid.Row="1" x:Name="_guicScroll"
                       HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
@@ -46,5 +95,6 @@
                 </Grid>
             </Grid>
         </ScrollViewer>
+    </Grid>
     </Grid>
 </UserControl>

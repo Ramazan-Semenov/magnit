@@ -30,20 +30,23 @@ namespace Nikita.Views.UserControls
             InitializeComponent();
             ItemsControl itemsControl = new ItemsControl();
             DataContext = new f();
-            UIElement uI=  new UIElement();
+            UIElement uI = new UIElement();
             foreach (var item in new f().Buttons)
             {
-                TextBox button = new TextBox();
+                Label button = new Label();
                 button.Margin = item.Margin;
-                button.Text = item.Content.ToString();
+                button.Content = item.Content.ToString();
                 button.Width = item.Width;
                 button.Height = item.Height;
 
                 LayoutRoot.Children.Add(button);
 
             }
+            Paint();
+        }
 
-
+        private void Paint()
+        {
             foreach (UIElement uiEle in LayoutRoot.Children)
             {
                 if (uiEle is Button || uiEle is TextBox)
@@ -66,11 +69,16 @@ namespace Nikita.Views.UserControls
         {
             if (isDragDropInEffect)
             {
+                //FrameworkElement currEle = sender as FrameworkElement;
+                //double xPos = e.GetPosition(null).X - (pos.X) + currEle.Margin.Left;
+                //double yPos = e.GetPosition(null).Y - (pos.Y) + currEle.Margin.Top;
+                //currEle.Margin = new Thickness(xPos, yPos, 0, 0);
+                //pos = e.GetPosition(null);
                 FrameworkElement currEle = sender as FrameworkElement;
-                double xPos = e.GetPosition(null).X - pos.X + currEle.Margin.Left;
-                double yPos = e.GetPosition(null).Y - pos.Y + currEle.Margin.Top;
+                double xPos = e.GetPosition(LayoutRoot).X - (pos.X) + currEle.Margin.Left;
+                double yPos = e.GetPosition(LayoutRoot).Y - (pos.Y) + currEle.Margin.Top;
                 currEle.Margin = new Thickness(xPos, yPos, 0, 0);
-                pos = e.GetPosition(null);
+                pos = e.GetPosition(LayoutRoot);
             }
         }
 
@@ -80,7 +88,7 @@ namespace Nikita.Views.UserControls
 
             FrameworkElement fEle = sender as FrameworkElement;
             isDragDropInEffect = true;
-            pos = e.GetPosition(null);
+            pos = e.GetPosition(LayoutRoot);
             fEle.CaptureMouse();
             fEle.Cursor = Cursors.Hand;
         }
@@ -99,7 +107,23 @@ namespace Nikita.Views.UserControls
         {
          
         }
+        private void AddButton(object sender, RoutedEventArgs e)
+        {
+            LayoutRoot.Children.Add(new Button { Content = "Button", Width = 100, Height = 35 });
+            Paint();
+        }
+        private void AddLable(object sender, RoutedEventArgs e)
+        {
+            LayoutRoot.Children.Add(new Label { Content = "Label", Width = 100, Height = 35 });
+            Paint();
 
+        }
+        private void AddTextBox(object sender, RoutedEventArgs e)
+        {
+            LayoutRoot.Children.Add(new TextBox { Text = "",  Width = 100, Height = 35 });
+            Paint();
+
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             List<Button> buttons = new List<Button>();
@@ -117,9 +141,6 @@ namespace Nikita.Views.UserControls
           
             }
             Button button = buttons.FirstOrDefault();
-
-         
-
             string output = JsonConvert.SerializeObject(buttonS1);
             File.WriteAllText(@"C:\Users\lenovo\Desktop\er.json", output);
           //  MessageBox.Show(button.Margin.ToString()) ;

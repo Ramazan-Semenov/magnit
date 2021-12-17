@@ -55,7 +55,7 @@
                                 <GridViewColumn Header="Статус" >
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <ComboBox Width="100" Background="White" FontSize="10" Height="22" IsEditable="True" ItemsSource="{Binding statuslist}" Text="{Binding status}" />
+                                            <ComboBox Tag="{Binding id}"  Width="100" Background="White" FontSize="10" Height="22" IsEditable="True" ItemsSource="{Binding statuslist}" Text="{Binding status}" />
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>

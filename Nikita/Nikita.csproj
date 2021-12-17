@@ -121,8 +121,12 @@
     <Compile Include="Model\task_book.cs" />
     <Compile Include="Model\Users.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CoordinatorViewModel\CoordinatorViewModel.cs" />
     <Compile Include="ViewModel\EditTaskViewModel.cs" />
     <Compile Include="ViewModel\ListTaskViewModel.cs" />
+    <Compile Include="Views\coordinatorView\CoordinatorViewPage.xaml.cs">
+      <DependentUpon>CoordinatorViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\ListTask.xaml.cs">
       <DependentUpon>ListTask.xaml</DependentUpon>
     </Compile>
@@ -131,6 +135,9 @@
     </Compile>
     <Compile Include="Views\UserControls\Create_Department.xaml.cs">
       <DependentUpon>Create_Department.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\DynamicTaskView.xaml.cs">
+      <DependentUpon>DynamicTaskView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\FilterDG.xaml.cs">
       <DependentUpon>FilterDG.xaml</DependentUpon>
@@ -169,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\coordinatorView\CoordinatorViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\ListTask.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -178,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\Create_Department.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\DynamicTaskView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
