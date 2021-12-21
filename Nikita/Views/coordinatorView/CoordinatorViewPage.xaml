@@ -20,7 +20,7 @@
                     </TabItem>
                 </TabControl>
             </TabItem>
-            <TabItem Header="Развитие отчетности и разработка">
+            <TabItem MouseUp="TabItem_MouseDown" Header="Развитие отчетности и разработка">
                 <TabControl>
                     <TabItem Header="Новые запросы">
                     </TabItem>
@@ -30,7 +30,7 @@
                     </TabItem>
                 </TabControl>
             </TabItem>
-            <TabItem Header="Взаимодействие КМ">
+            <TabItem MouseUp="TabItem_MouseDown" Header="Взаимодействие КМ">
                 <TabControl>
                     <TabItem Header="Новые запросы">
                     </TabItem>
@@ -38,7 +38,7 @@
                     </TabItem>
                 </TabControl>
             </TabItem>
-            <TabItem Header="Регулярная отчетность">
+            <TabItem MouseUp="TabItem_MouseDown" Header="Регулярная отчетность">
                 <TabControl>
                     <TabItem Header="Новые запросы">
                     </TabItem>
@@ -46,7 +46,7 @@
                     </TabItem>
                 </TabControl>
             </TabItem>
-            <TabItem Header="Аналитика">
+            <TabItem MouseUp="TabItem_MouseDown" Header="Аналитика">
                 <TabControl>
                     <TabItem Header="Новые запросы">
                     </TabItem>
@@ -54,7 +54,7 @@
                     </TabItem>
                 </TabControl>
             </TabItem>
-            <TabItem Header="Бюджетирование">
+            <TabItem MouseUp="TabItem_MouseDown" Header="Бюджетирование">
                 <TabControl>
                     <TabItem Header="Новые запросы">
                     </TabItem>
