@@ -117,13 +117,19 @@
     <Compile Include="Model\CrudOp\CrudOperations.cs" />
     <Compile Include="Model\CrudOp\ICrudOperations.cs" />
     <Compile Include="Model\DepDataBaseOperation\ChangeDataBase.cs" />
+    <Compile Include="Model\DepDataBaseOperation\Class1.cs" />
     <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\Staff.cs" />
     <Compile Include="Model\task_book.cs" />
     <Compile Include="Model\Users.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\CoordinatorViewModel\CoordinatorViewModel.cs" />
     <Compile Include="ViewModel\EditTaskViewModel.cs" />
     <Compile Include="ViewModel\ListTaskViewModel.cs" />
+    <Compile Include="ViewModel\StaffViewModel\StaffViewModel.cs" />
+    <Compile Include="Views\ChiefViews\ChiefViewPage.xaml.cs">
+      <DependentUpon>ChiefViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\coordinatorView\CoordinatorViewPage.xaml.cs">
       <DependentUpon>CoordinatorViewPage.xaml</DependentUpon>
     </Compile>
@@ -132,6 +138,9 @@
     </Compile>
     <Compile Include="Views\Pages\Tests.xaml.cs">
       <DependentUpon>Tests.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffView\StaffView.xaml.cs">
+      <DependentUpon>StaffView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\Create_Department.xaml.cs">
       <DependentUpon>Create_Department.xaml</DependentUpon>
@@ -148,6 +157,9 @@
     <Compile Include="ViewModel\CreateTaskViewModel.cs" />
     <Compile Include="Views\UserControls\ListTask.xaml.cs">
       <DependentUpon>ListTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\NewTaskDataGrid.xaml.cs">
+      <DependentUpon>NewTaskDataGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\SVCRTS.xaml.cs">
       <DependentUpon>SVCRTS.xaml</DependentUpon>
@@ -176,6 +188,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ChiefViews\ChiefViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\coordinatorView\CoordinatorViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,11 +204,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\StaffView\StaffView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\Create_Department.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\DynamicTaskView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\NewTaskDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -289,6 +313,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Sch.mdf</DependentUpon>
     </Content>
+    <Resource Include="time_chart_analysis_icon_182979.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

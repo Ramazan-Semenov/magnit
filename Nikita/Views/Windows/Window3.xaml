@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nikita" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Самому интересно, что здесь написать" Height="700" Width="1000">
+        Title="Планировщик задач" Height="700" Width="1000">
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -32,64 +32,9 @@
 
     <Grid Background="#FFDEDEDE">
         <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="auto"/>
-        <TabControl x:Name="Tab"  Margin="75 80 0 0 ">
-            <TabItem Header="Прогнозирование продаж ФРОВ">
-                <TabControl>
-                    <TabItem Header="Новые запросы">
-                        <Frame Source="/Views/Pages/ListTask.xaml"></Frame>
 
-                    </TabItem>
-                    <TabItem Header="Текущие задачи">
-                        <Frame Source="/Views/Pages/ListTask.xaml"></Frame>
 
-                    </TabItem>
-                </TabControl>
-            </TabItem>
-            <TabItem Header="Развитие отчетности и разработка">
-                <TabControl>
-                    <TabItem Header="Новые запросы">
-                    </TabItem>
-                    <TabItem  Header="Текущие задачи">
-                     
 
-                    </TabItem>
-                </TabControl>
-            </TabItem>
-            <TabItem Header="Взаимодействие КМ">
-                <TabControl>
-                    <TabItem Header="Новые запросы">
-                    </TabItem>
-                    <TabItem Header="Текущие задачи">
-                    </TabItem>
-                </TabControl>
-            </TabItem>
-            <TabItem Header="Регулярная отчетность">
-                <TabControl>
-                    <TabItem Header="Новые запросы">
-                    </TabItem>
-                    <TabItem Header="Текущие задачи">
-                    </TabItem>
-                </TabControl>
-            </TabItem>
-            <TabItem Header="Аналитика">
-                <TabControl>
-                    <TabItem Header="Новые запросы">
-                    </TabItem>
-                    <TabItem Header="Текущие задачи">
-                    </TabItem>
-                </TabControl>
-            </TabItem>
-            <TabItem Header="Бюджетирование">
-                <TabControl>
-                    <TabItem Header="Новые запросы">
-                    </TabItem>
-                    <TabItem Header="Текущие задачи">
-                    </TabItem>
-                </TabControl>
-            </TabItem>
-        </TabControl>
-        
-        
         <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
@@ -99,9 +44,9 @@
                     <StackPanel Width="150" Background="Gray">
                         <Button x:Name="opendb" Click="opendb_Click" Content="Settings"/>
                         <Button x:Name="v">
-     
+
                         </Button>
-                            <Button Content="Close" Command="{Binding Close}"/>
+                        <Button Content="Close" Command="{Binding Close}"/>
                         <Separator/>
                         <Button Content="Logout"/>
                     </StackPanel>
@@ -132,6 +77,18 @@
                     <Image Height="80" VerticalAlignment="Bottom"/>
                 </Grid>
                 <ListView x:Name="ListViewMenu" Foreground="#FF5C99D6" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
+                    <ListViewItem x:Name="Cont" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Tab" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="Вкладка начальника" VerticalAlignment="Center"  Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem  x:Name="Coordinator" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="FocusField" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="Вкладка координатор" VerticalAlignment="Center"  Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
                     <ListViewItem x:Name="ItemHome" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ReadMore" Height="25" Width="25" Margin="10"/>
@@ -141,22 +98,11 @@
                     <ListViewItem x:Name="ItemCreate" Height="60"  >
                         <StackPanel Orientation="Horizontal"  >
 
+                            <Image Source="/time_chart_analysis_icon_182979.ico" Height="25" Width="25" Margin="10" />
 
-                            <materialDesign:PackIcon Kind="Quill" Height="25" Width="25" Margin="10" />
+                            <!--<materialDesign:PackIcon Kind="VennDiagram" Height="25" Width="25" Margin="10" />-->
                             <TextBlock Text="Диаграмма запросов" VerticalAlignment="Center" Margin="20 10" />
 
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem x:Name="Cont" Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Input" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Входящие запросы" VerticalAlignment="Center"  Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Output" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Исходящие запросы" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>

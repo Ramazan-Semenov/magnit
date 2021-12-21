@@ -16,11 +16,17 @@ namespace Nikita
         public string desctription { get; set; }
         public Model.task_book Task_Book { get; set; }
         public string name_of_the_task { get; set; }
-
         public CreateTaskViewModel()
         {
             Create = new Controls.LambdaCommand(OnGetCommandExecuteCreate,CanGetCommandExecuteCreate);
             Task_Book = new Model.task_book();
+        }
+        public CreateTaskViewModel(Model.task_book __task_Book)
+        {
+            __task_Book.status = string.Empty;
+            Create = new Controls.LambdaCommand(OnGetCommandExecuteCreate, CanGetCommandExecuteCreate);
+            Task_Book = new Model.task_book();
+            Task_Book = __task_Book;
         }
 
 

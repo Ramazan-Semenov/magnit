@@ -32,18 +32,10 @@ namespace Nikita.ViewModel
             EditTask = new Controls.LambdaCommand(OnGetCommandExecuteEditTask, CanGetCommandExecuteEditTask);
             CreateTask = new Controls.LambdaCommand(OnGetCommandExecuteCreateTask, CanGetCommandExecuteCreateTask);
             DeleteTask = new Controls.LambdaCommand(OnGetCommandExecuteDeleteTask, CanGetCommandExecuteDeleteTask);
-            //            Employes = new ObservableCollection<task_book>
-            //{
-            //    new task_book{Numder=1, Date_of_compilation=DateTime.Parse("27/10/2021"),from_whom="Пинчук Наталья Александровна", task_type="Анализ", name_of_the_task="Проект 'Вертикальные теплицы'_Магнит_Краснодар", start_date=DateTime.Parse("27/10/2021"), end_date=DateTime.Parse("28/10/2021"), executor="Хахулина Юлия, Маланова Ольга", priority="Высокий", status="Принят" },
-            //    new task_book{Numder=2, Date_of_compilation=DateTime.Parse("27/10/2021"),from_whom="Пинчук Наталья Александровна", task_type="Анализ", name_of_the_task="Проект 'Вертикальные теплицы'_Магнит_Краснодар", start_date=DateTime.Parse("27/10/2021"), end_date=DateTime.Parse("28/10/2021"), executor="Хахулина Юлия, Маланова Ольга", priority="Высокий", status="Принят" },
-            //    new task_book{Numder=3, Date_of_compilation=DateTime.Parse("27/10/2021"),from_whom="дрмиор", task_type="Анализ", name_of_the_task="Проект 'Вертикальные теплицы'_Магнит_Краснодар", start_date=DateTime.Parse("27/10/2021"), end_date=DateTime.Parse("28/10/2021"), executor="Хахулина Юлия, Маланова Ольга", priority="Высокий", status="Принят" },
-            //    new task_book{Numder=4, Date_of_compilation=DateTime.Parse("27/10/2021"),from_whom="Пинчук Наталья Александровна", task_type="Анализ", name_of_the_task="Проект 'Вертикальные теплицы'_Магнит_Краснодар", start_date=DateTime.Parse("27/10/2021"), end_date=DateTime.Parse("28/10/2021"), executor="Хахулина Юлия, Маланова Ольга", priority="Высокий", status="Принят" },
-            //    new task_book{Numder=5, Date_of_compilation=DateTime.Parse("27/10/2021"),from_whom="Пинчук Наталья Александровна", task_type="Анализ", name_of_the_task="Проект 'Вертикальные теплицы'_Магнит_Краснодар", start_date=DateTime.Parse("27/10/2021"), end_date=DateTime.Parse("28/10/2021"), executor="Хахулина Юлия, Маланова Ольга", priority="Высокий", status="Принят" }
-
-            //};
+            Create_based_on = new Controls.LambdaCommand(OnGetCommandExecuteCreate_based_on, CanGetCommandExecuteCreate_based_on);
+      
             _con = new ConnectionDataBase();
-            //Thread thread = new Thread(Start);
-            //thread.Start();
+         
             Start();
         }
         private Model.ConnectionDataBase _con;
@@ -73,24 +65,23 @@ namespace Nikita.ViewModel
 
         public  void Changed(object sender, RecordChangedEventArgs<task_book> e)
         {
-            //var changedEntity = e.Entity;
             task_Books = new ObservableCollection<task_book>(new Model.CrudOp.CrudOperations().GetEntityList());
             OnPropertyChanged("Task_Books");
-            //MessageBox.Show("DML operation: " + e.ChangeType);
-
-            //Console.WriteLine("DML operation: " + e.ChangeType);
-            //Console.WriteLine("Number: " + changedEntity.Number);
-            //Console.WriteLine("executor: " + changedEntity.executor);
-            //Console.WriteLine("from_whom: " + changedEntity.from_whom);
-            //Console.WriteLine("Date_of_compilation: " + changedEntity.Date_of_compilation);
-            //Console.WriteLine("start_date: " + changedEntity.start_date);
-            //Console.WriteLine("end_date: " + changedEntity.end_date);
+     
 
         }
-    
 
-    #region  Команда для открытия окна редактирования 
-    public ICommand EditTask { get; }
+        public ICommand Create_based_on { get; }
+        private bool CanGetCommandExecuteCreate_based_on(object param) => true;
+        private void OnGetCommandExecuteCreate_based_on(object param)
+        {
+
+            Create_Task window = new Create_Task(Selected);
+            window.ShowDialog();
+
+        }
+        #region  Команда для открытия окна редактирования 
+        public ICommand EditTask { get; }
         private bool CanGetCommandExecuteEditTask(object param) => true;
         private void OnGetCommandExecuteEditTask(object param)
         {

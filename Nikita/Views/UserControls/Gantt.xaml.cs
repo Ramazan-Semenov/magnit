@@ -126,6 +126,7 @@ namespace Nikita.Views.UserControls
                     label.BorderThickness = new Thickness(0, 0, 1, 1);
                     label.BorderBrush = Brushes.Black;
                     label.Content = (i).ToString() + "." + SelectedDate.Value.Month.ToString() + " " + DateTime.Parse(string.Format("{0}.{1}.{2}", i, SelectedDate.Value.Month, SelectedDate.Value.Year)).DayOfWeek; /*string.Format("{0:00}:{1:00}", span.Hours, span.Minutes);*/
+                 
                     _guicGridTimeline.Children.Add(label);
 
                     span = span.Add(time);

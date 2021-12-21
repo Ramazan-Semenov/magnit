@@ -27,6 +27,13 @@ namespace Nikita
             DataContext = new CreateTaskViewModel();
             //UserLB.Content=" "+System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         }
+        public Create_Task(Model.task_book task_Book)
+        {
+            InitializeComponent();
+            //BuildDates();
+            DataContext = new CreateTaskViewModel(task_Book);
+            //UserLB.Content=" "+System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

@@ -2,9 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Nikita"
-             StartupUri="Views/UserControls/Gantt.xaml">
+             StartupUri="Views/coordinatorView/coordinatorViewPage.xaml">
     <Application.Resources>
-         
+        <!--StartupUri="Views/StaffView/StaffView.xaml"-->
     </Application.Resources>
 </Application>
 

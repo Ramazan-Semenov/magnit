@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Nikita.Views.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -27,8 +28,10 @@ namespace Nikita
             InitializeComponent();
              userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
 
-            
-           GetEntityList();
+            Cont.Visibility = Visibility.Collapsed;
+            Cont.Visibility = Visibility.Collapsed;
+
+            GetEntityList();
             //DataContext = new ViewModel.ListTaskViewModel();
             v.Content = userName;
         }
@@ -50,17 +53,16 @@ where Users.[Name]= @N";
 
             foreach (var item in students)
             {
-               if(item.Role_Name=="Админ")
+                if (item.Role_Name == "Админ")
                 {
-                    Tab.Visibility = Visibility.Visible;
-                }    
+                    Cont.Visibility = Visibility.Visible;
+                }
             }
 
             return students;
         }
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            GridMain.Children.Clear();
             GridMain.Children.Clear();
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
@@ -69,10 +71,13 @@ where Users.[Name]= @N";
                     GridMain.Children.Add(new ListTask());
                     break;
                 case "ItemCreate":
-                    GridMain.Children.Add(new Gantt_2());
+                    GridMain.Children.Add(new Gantt());
                     break;
-                case "Cont":
-                    GridMain.Children.Add(new Views.UserControls.Gantt());
+                case "Cont":                  
+                    GridMain.Children.Add(new Views.ChiefViews.ChiefViewPage());
+                    break;
+                case "Coordinator":
+                    GridMain.Children.Add(new Views.coordinatorView.CoordinatorViewPage());
                     break;
                 default:
                     break;

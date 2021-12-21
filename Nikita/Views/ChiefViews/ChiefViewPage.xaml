@@ -1,22 +1,24 @@
-﻿<UserControl x:Class="Nikita.Views.coordinatorView.CoordinatorViewPage"
+﻿<UserControl x:Class="Nikita.Views.ChiefViews.ChiefViewPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Nikita.Views.coordinatorView"
+      xmlns:local="clr-namespace:Nikita.Views.ChiefViews"
       mc:Ignorable="d" 
-              xmlns:ListTask="clr-namespace:Nikita.Views.UserControls" 
-    Width="800" Height="630">
+      Width="Auto" Height="Auto"
+    >
 
     <Grid>
-        <TabControl x:Name="Tab"  >
-            <TabItem MouseUp="TabItem_MouseDown" Header="Прогнозирование продаж ФРОВ">
+        <TabControl x:Name="Tab"  Margin="75 80 0 0 ">
+            <TabItem Header="Прогнозирование продаж ФРОВ">
                 <TabControl>
-                    <TabItem  Header="Новые запросы">
-                        <ListTask:NewTaskDataGrid></ListTask:NewTaskDataGrid>
+                    <TabItem Header="Новые запросы">
+                        <Frame Source="/Views/Pages/ListTask.xaml"></Frame>
+
                     </TabItem>
                     <TabItem Header="Текущие задачи">
-                        <ListTask:ListTask ></ListTask:ListTask>
+                        <Frame Source="/Views/Pages/ListTask.xaml"></Frame>
+
                     </TabItem>
                 </TabControl>
             </TabItem>

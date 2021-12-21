@@ -57,9 +57,9 @@
                 <TextBox Text="{Binding Task_Book.name_of_the_task}" Grid.Column="1" BorderThickness="1" BorderBrush="Black"></TextBox>
             </Grid>
         </Grid>
-        <Grid  Grid.Row="1">
+        <Grid  Grid.Row="1" Margin="0,0,0,271" Grid.RowSpan="2">
 
-            <TextBlock Margin="0,0,0,1">Дополнительные сведкния</TextBlock>
+            <TextBlock Margin="0,-14,0,-29">Дополнительные сведкния</TextBlock>
             <Grid Margin="3,20,695,146">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>

@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="Nikita.Views.UserControls.NewTaskDataGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nikita.Views.UserControls" xmlns:control="http://filterdatagrid.control.com/2021"
+             mc:Ignorable="d" 
+             >
+    <Grid>
+        <control:FilterDataGrid
+            x:Name="FilterDataGrid"          
+                    Margin="2,0,-2,100"
+            AlternatingRowBackground="WhiteSmoke"
+            AlternationCount="2"
+            AutoGenerateColumns="False"
+            Background="Transparent"
+            CanUserAddRows="False"
+                    GridLinesVisibility="None"
+            DateFormatString="d"
+            FilterLanguage="Russian"
+            HorizontalGridLinesBrush="LightGray"
+            IsReadOnly="True"
+                 
+            ItemsSource="{Binding newTask, UpdateSourceTrigger=PropertyChanged}"
+            RowHeaderWidth="40"
+            ShowElapsedTime="True"
+            ShowStatusBar="True"
+            VerticalGridLinesBrush="LightGray"
+            VerticalScrollBarVisibility="Visible"
+            VirtualizingStackPanel.IsVirtualizing="True">
+            <control:FilterDataGrid.Columns>
+                <control:DataGridTemplateColumn
+                    FieldName="Numder"
+                    Header="Номер"
+                    IsColumnFiltered="True"
+                    SortMemberPath="Numder">
+                    <control:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate >
+                            <TextBlock Text="{Binding Number}" />
+                        </DataTemplate>
+                    </control:DataGridTemplateColumn.CellTemplate>
+                </control:DataGridTemplateColumn>
+
+                <control:DataGridTextColumn
+                    Binding="{Binding Date_of_compilation}"
+                    Header="Дата составления"
+                    IsColumnFiltered="True" />
+
+                <control:DataGridTextColumn
+                    Binding="{Binding from_whom}"
+                    Header="От кого"
+                    IsColumnFiltered="True" />
+
+                <control:DataGridTextColumn
+                    Binding="{Binding task_type}"
+                    Header="Тип задачи"
+                    IsColumnFiltered="True" />
+
+                <control:DataGridTextColumn
+                    Binding="{Binding name_of_the_task}"
+                    Header="Наименование задачи"
+                    IsColumnFiltered="True" />
+
+                <control:DataGridTextColumn
+                    Binding="{Binding start_date}"
+                    Header="Дата начала"
+                    IsColumnFiltered="True" />
+                <control:DataGridTextColumn
+                    Binding="{Binding end_date}"
+                    Header="Дата окончания"
+                    IsColumnFiltered="True" />
+                <control:DataGridTextColumn
+                    Binding="{Binding executor}"
+                    Header="Исполнитель"
+                    IsColumnFiltered="True" />
+                <control:DataGridTextColumn
+                    Binding="{Binding priority}"
+                    Header="Приоритет"
+                    IsColumnFiltered="True" />
+                <control:DataGridTextColumn
+                    Binding="{Binding status}"
+                    Header="Статус"
+                    IsColumnFiltered="True" />
+            </control:FilterDataGrid.Columns>
+        </control:FilterDataGrid>
+    </Grid>
+</UserControl>
