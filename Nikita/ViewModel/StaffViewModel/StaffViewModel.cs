@@ -14,17 +14,22 @@ using TableDependency.SqlClient.Base.EventArgs;
 
 namespace Nikita.ViewModel.StaffViewModel
 {
-  public   class StaffViewModel :Base.BaseViewModel
+  public class StaffViewModel :Base.BaseViewModel
 
     {
         private ObservableCollection< Model.task_book> NewTask;
         private SqlTableDependency<task_book> dep;
+        public List<task_book> Task_Books { get; set; }
+        public string g { get; set; } = "dfdf";
         public ObservableCollection<Model.task_book> newTask { get=>NewTask; set { NewTask = value;OnPropertyChanged(nameof(newTask)); } }
         private Model.ConnectionDataBase _con;
         public StaffViewModel()
         {
             NewTask = new ObservableCollection<Model.task_book>();
+            newTask= new ObservableCollection<Model.task_book>( new Model.CrudOp.CrudOperations().GetEntityList().Where(x => x.executor == "Рома").ToList());
             _con = new ConnectionDataBase();
+            Task_Books = new List<task_book>();
+            Task_Books = (List<task_book>)new Model.CrudOp.CrudOperations().GetEntityList().Where(x=>x.executor=="Рома").ToList();
             Start();
 
         }
@@ -71,6 +76,14 @@ namespace Nikita.ViewModel.StaffViewModel
 
 
         }
+
+        private IList<task_book> dataContext;
+
+        public IList<task_book> DataContext { get => dataContext; set => Set(ref dataContext, value); }
+
+        private IList<task_book> task_Book;
+
+        public IList<task_book> Task_Book { get => task_Book; set => Set(ref task_Book, value); }
 
 
 

@@ -30,10 +30,19 @@
 
     </Window.Triggers>
 
-    <Grid Background="#FFDEDEDE">
-        <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="auto"/>
+    <Grid >
+        <!--<Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="auto"/>-->
 
-
+        <!--<Frame
+            x:Name="GridMain" 
+            Opacity="{Binding FrameOpacity}"
+            Content="{Binding CurrentPage}"   Background="Black">
+            
+        </Frame>-->
+        <Frame  x:Name="GridMain"   Opacity="{Binding FrameOpacity}"
+            Content="{Binding CurrentPage}">
+            
+        </Frame>
 
         <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
             <Grid.Effect>
@@ -76,12 +85,58 @@
 
                     <Image Height="80" VerticalAlignment="Bottom"/>
                 </Grid>
-                <ListView x:Name="ListViewMenu" Foreground="#FF5C99D6" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
-                    <ListViewItem x:Name="Cont" Height="60">
+
+                <StackPanel Background="White" Orientation="Vertical">
+                    <Button Command="{Binding OpenChiefPage}" Margin="0" BorderBrush="Transparent" Background="Transparent">
+                            <Grid>
+                                <materialDesign:PackIcon Kind="Tab" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="Вкладка начальника" VerticalAlignment="Center"  Margin="65 0 0 0 "/>
+                            </Grid>                     
+                        </Button>
+                    <Button Command="{Binding OpenCoordinatorPage}" BorderBrush="Transparent" Background="Transparent">
+                        <Grid>
+                            <materialDesign:PackIcon Kind="FocusField" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="Вкладка координатор" VerticalAlignment="Center"  Margin="65 0 0 0 "/>
+                        </Grid>
+                    </Button>
+                    <Button Command="{Binding OpenAllQueryPage}" BorderBrush="Transparent" Background="Transparent">
+                        <Grid>
+                            <materialDesign:PackIcon Kind="ReadMore" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="Все запросы" VerticalAlignment="Center"  Margin="65 0 0 0 "/>
+                        </Grid>
+                    </Button>
+                    <Button Command="{Binding OpenDiagramPage}" BorderBrush="Transparent" Background="Transparent">
+                        <Grid>
+                            <Image Source="/time_chart_analysis_icon_182979.ico"  Height="25" Width="25" Margin="0 0 25 0" />
+
+                            <TextBlock Text="Диаграмма запросов" VerticalAlignment="Center" Margin="65 0 0 0 " />
+                        </Grid>
+                    </Button>
+                </StackPanel>
+             
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
+<!--<ListView x:Name="ListViewMenu" Foreground="#FF5C99D6" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
+                    <ListViewItem x:Name="Cont" >
+                        -->
+<!--<Button Margin="0" BorderBrush="Transparent" Background="Transparent">
+                            <Grid>
+                                <materialDesign:PackIcon Kind="Tab" Height="25" Width="25" Margin="10"/>
+                                <TextBlock Text="Вкладка начальника" VerticalAlignment="Center"  Margin="20 10"/>
+                            </Grid> 
+                            -->
+<!---->
+<!--
+
+                        </Button>-->
+<!--
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Tab" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Вкладка начальника" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
+                        
                     </ListViewItem>
                     <ListViewItem  x:Name="Coordinator" Height="60">
                         <StackPanel Orientation="Horizontal">
@@ -100,13 +155,8 @@
 
                             <Image Source="/time_chart_analysis_icon_182979.ico" Height="25" Width="25" Margin="10" />
 
-                            <!--<materialDesign:PackIcon Kind="VennDiagram" Height="25" Width="25" Margin="10" />-->
                             <TextBlock Text="Диаграмма запросов" VerticalAlignment="Center" Margin="20 10" />
 
                         </StackPanel>
                     </ListViewItem>
-                </ListView>
-            </StackPanel>
-        </Grid>
-    </Grid>
-</Window>
+                </ListView>-->

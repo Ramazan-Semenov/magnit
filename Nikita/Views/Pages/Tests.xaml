@@ -5,12 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Nikita.Views.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+
       Title="Tests">
 
-    <Grid>
+    <Grid Background="Black">
         <Button Width="180" Height="30" >ewfqfqwef</Button>
-        <Button Width="180" Height="30" Margin="307,274,313,146" >ejbvjfvn</Button>
+        <Button Width="180" Height="30" >ejbvjfvn</Button>
 
     </Grid>
 </Page>

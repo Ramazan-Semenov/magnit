@@ -18,7 +18,7 @@ namespace Nikita.Views.ChiefViews
     /// <summary>
     /// Логика взаимодействия для ChiefViewPage.xaml
     /// </summary>
-    public partial class ChiefViewPage : UserControl
+    public partial class ChiefViewPage : Page
     {
         public ChiefViewPage()
         {

@@ -82,7 +82,11 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="#b4bdce" Content="Тип задачи" />
-                <TextBox Text="{Binding Task_Book.task_type}"  Grid.Column="1" BorderThickness="1" BorderBrush="Black" ></TextBox>
+                <!--<TextBox Text="{Binding Task_Book.task_type}"  Grid.Column="1" BorderThickness="1" BorderBrush="Black" ></TextBox>-->
+                <ComboBox  IsEditable="True"  Text="{Binding Task_Book.task_type}"   Grid.Column="1" SelectionChanged="ComboBox_SelectionChanged">
+                    <TextBlock>Разаработка</TextBlock>
+                    <TextBlock>Аналитика</TextBlock>
+                </ComboBox>
             </Grid>
             <Grid Margin="458,59,300,113">
                 <Grid.ColumnDefinitions>
@@ -90,9 +94,13 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="#b4bdce" Content="Отдел" />
-                <TextBox Text="Развитие отчетности и разработки инстрементов"  Grid.Column="1" BorderThickness="1" BorderBrush="Black" />
+
+                <ComboBox ItemsSource="{Binding listdep}" Grid.Column="1" Text="{Binding dep}" IsEditable="True" >
+                    <!--<TextBox Text="Развитие отчетности и разработки инстрементов"  />
+                    <TextBlock Text="Прогнозирование"></TextBlock>-->
+                </ComboBox>
             </Grid>
-            <Grid Margin="458,96,300,78">
+            <Grid Margin="458,92,300,78">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
@@ -100,14 +108,14 @@
                 <Label Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="#b4bdce" Content="Инсполнитель" />
                 <TextBox Text="{Binding Task_Book.executor}"  Grid.Column="1" BorderThickness="1" BorderBrush="Black" />
             </Grid>
-            <Button Content="Прикрипить файл" Margin="6,96,603,74">
+            <Button Command="{Binding openfloderfile}" Content="Прикрипить файл" Margin="6,96,603,74">
 
             </Button>
             <Label Content="Срок вылонения" Margin="730,0,132,108"></Label>
             <Label Content="Приоритет" Margin="914,0,4,108"></Label>
             <DatePicker   Background="White" SelectedDate="{Binding DateNow}" Margin="732,32,118,133" />
             <DatePicker  SelectedDate="{Binding Task_Book.end_date}" Background="White"  Margin="732,72,118,93" />
-            <ComboBox Text="{Binding Task_Book.status}" Margin="909,32,12,138">
+            <ComboBox IsEditable="True" Text="{Binding Task_Book.status}" Margin="909,32,12,138">
                 <TextBlock Background="Red">Высокий</TextBlock>
                 <TextBlock Background="Yellow" >Средний</TextBlock>
                 <TextBlock Background="Green" >Низкий</TextBlock>

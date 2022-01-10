@@ -16,28 +16,57 @@ using TableDependency.SqlClient.Base.EventArgs;
 
 namespace Nikita.ViewModel
 {
-    class ListTaskViewModel:Base.BaseViewModel, IDisposable
+  public  class ListTaskViewModel:Base.BaseViewModel, IDisposable
     {
-        private ObservableCollection<task_book> task_Books;
-        public ObservableCollection<task_book> Task_Books { get => task_Books; set 
+      
+        private static ObservableCollection<task_book> task_Books;
+        public static ObservableCollection<task_book> Task_Books { get => task_Books; set 
             {
-                task_Books= value; OnPropertyChanged(nameof(Task_Books));
+                task_Books= value; /*OnPropertyChanged(nameof(Task_Books))*/;
             } }
 
         public task_book Selected { get; set; }
+        public ListTaskViewModel( string txt)
+        {
+            MessageBox.Show(txt);
+            //task_Books = new ObservableCollection<task_book>(new Model.CrudOp.CrudOperations().GetEntityList());
+            ////Task_Books = new ObservableCollection<task_book>();
+            //EditTask = new Controls.LambdaCommand(OnGetCommandExecuteEditTask, CanGetCommandExecuteEditTask);
+            //CreateTask = new Controls.LambdaCommand(OnGetCommandExecuteCreateTask, CanGetCommandExecuteCreateTask);
+            //DeleteTask = new Controls.LambdaCommand(OnGetCommandExecuteDeleteTask, CanGetCommandExecuteDeleteTask);
+            //Create_based_on = new Controls.LambdaCommand(OnGetCommandExecuteCreate_based_on, CanGetCommandExecuteCreate_based_on);
+
+            //_con = new ConnectionDataBase();
+
+            //Start();
+        }
         public ListTaskViewModel()
         {
-            task_Books = new ObservableCollection<task_book>(new Model.CrudOp.CrudOperations().GetEntityList());
+            task_Books = new ObservableCollection<task_book>(/*new Model.CrudOp.CrudOperations().GetEntityList()*/);
             //Task_Books = new ObservableCollection<task_book>();
             EditTask = new Controls.LambdaCommand(OnGetCommandExecuteEditTask, CanGetCommandExecuteEditTask);
             CreateTask = new Controls.LambdaCommand(OnGetCommandExecuteCreateTask, CanGetCommandExecuteCreateTask);
             DeleteTask = new Controls.LambdaCommand(OnGetCommandExecuteDeleteTask, CanGetCommandExecuteDeleteTask);
             Create_based_on = new Controls.LambdaCommand(OnGetCommandExecuteCreate_based_on, CanGetCommandExecuteCreate_based_on);
-      
+
             _con = new ConnectionDataBase();
-         
+
             Start();
         }
+        public ListTaskViewModel(List<task_book> tasks)
+        {
+            task_Books = new ObservableCollection<task_book>(tasks);
+            //Task_Books = new ObservableCollection<task_book>();
+            EditTask = new Controls.LambdaCommand(OnGetCommandExecuteEditTask, CanGetCommandExecuteEditTask);
+            CreateTask = new Controls.LambdaCommand(OnGetCommandExecuteCreateTask, CanGetCommandExecuteCreateTask);
+            DeleteTask = new Controls.LambdaCommand(OnGetCommandExecuteDeleteTask, CanGetCommandExecuteDeleteTask);
+            Create_based_on = new Controls.LambdaCommand(OnGetCommandExecuteCreate_based_on, CanGetCommandExecuteCreate_based_on);
+
+            _con = new ConnectionDataBase();
+
+            Start();
+        }
+
         private Model.ConnectionDataBase _con;
       
         public void Start()
@@ -66,7 +95,7 @@ namespace Nikita.ViewModel
         public  void Changed(object sender, RecordChangedEventArgs<task_book> e)
         {
             task_Books = new ObservableCollection<task_book>(new Model.CrudOp.CrudOperations().GetEntityList());
-            OnPropertyChanged("Task_Books");
+            //OnPropertyChanged("Task_Books");
      
 
         }

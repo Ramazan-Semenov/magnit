@@ -18,18 +18,26 @@ namespace Nikita.Views.coordinatorView
     /// <summary>
     /// Логика взаимодействия для CoordinatorViewPage.xaml
     /// </summary>
-    public partial class CoordinatorViewPage : UserControl
+    public partial class CoordinatorViewPage : Page
     {
+
         public CoordinatorViewPage()
         {
             InitializeComponent();
+            DataContext = new ViewModel.CoordinatorViewModel.CoordinatorViewModel();
+           //MessageBox.Show( M.MyText);
         }
 
         private void TabItem_MouseDown(object sender, MouseButtonEventArgs e)
         {
             string Level_1 = (sender as TabItem).Header.ToString();
             string Level_2 = (((sender as TabItem).Content as TabControl).Items[((sender as TabItem).Content as TabControl).SelectedIndex] as TabItem).Header.ToString();
-            MessageBox.Show(string.Format("Level_1: {0} || Level_2: {1}",Level_1,Level_2));
+            //MessageBox.Show(string.Format("Level_1: {0} || Level_2: {1}",Level_1,Level_2));
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         
        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-    Width="900"
-    Height="800"
+    
     mc:Ignorable="d">
     <UserControl.Resources>
         <Geometry x:Key="Filter">
@@ -173,16 +172,22 @@
           SelectedItemChanged="TreeView_SelectedItemChanged">
                             <TreeView.ItemTemplate>
                                 <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                                    <CheckBox x:Name="Date" />
+                                    <CheckBox Checked="Date_Checked" Unchecked="Date_Unchecked" x:Name="Date" />
                                     <HierarchicalDataTemplate.Triggers>
                                         <DataTrigger Binding="{Binding Level}" Value="1">
-                                            <Setter TargetName="Date" Property="Content" Value="{Binding Value, StringFormat=yy}" />
+                                            <Setter TargetName="Date" Property="Content" Value="{Binding Value, StringFormat=dd/MM/yy}" />
+                                            <Setter TargetName="Date" Property="Tag" Value="1" />
+
                                         </DataTrigger>
                                         <DataTrigger Binding="{Binding Level}" Value="2">
-                                            <Setter TargetName="Date" Property="Content" Value="{Binding Value, StringFormat=MMMM}" />
+                                            <Setter TargetName="Date" Property="Content" Value="{Binding Value, StringFormat=dd/MM/yy}" />
+                                            <Setter TargetName="Date" Property="Tag" Value="2" />
+
                                         </DataTrigger>
                                         <DataTrigger Binding="{Binding Level}" Value="3">
                                             <Setter TargetName="Date" Property="Content" Value="{Binding Value, StringFormat=dd/MM/yy}" />
+                                            <Setter TargetName="Date" Property="Tag" Value="3" />
+
                                         </DataTrigger>
                                     </HierarchicalDataTemplate.Triggers>
                                 </HierarchicalDataTemplate>

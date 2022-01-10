@@ -92,6 +92,11 @@ namespace Nikita
         {
 
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
     //public class DateHierarchy : IHierarchy<DateTime>
     //{

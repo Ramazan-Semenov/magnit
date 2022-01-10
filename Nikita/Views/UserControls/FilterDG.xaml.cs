@@ -57,18 +57,18 @@ namespace Nikita
                     select new DateHierarchy
                     {
                         Level = 1,
-                        Value = new DateTime(year.Key, 1, 1).Year,
+                        Value = new DateTime(year.Key, 1, 1),
                         Children = from date in year
                                    group date by date.Month into month
                                    select new DateHierarchy
                                    {
                                        Level = 2,
-                                       Value = new DateTime(year.Key, month.Key, 1).Month,
+                                       Value = new DateTime(year.Key, month.Key, 1).ToString("dd/MM/yyyy"),
                                        Children = from day in month
                                                   select new DateHierarchy
                                                   {
                                                       Level = 3,
-                                                      Value = day.Day,
+                                                      Value = day.ToString("dd/MM/yyyy"),
                                                       Children = null
                                                   }
                                    }
@@ -188,6 +188,7 @@ namespace Nikita
 
                 }
                 Tree.Visibility = Visibility.Visible;
+                lbFilter.Visibility = Visibility.Collapsed;
                 return true;
             }catch
             {
@@ -199,6 +200,7 @@ namespace Nikita
         {
             var columnHeader = sender as Button;
             List<string> vs = new List<string>();
+            dates = new List<DateTime>();
             bool dop = false;
             if (convertdate((Table.Table.Rows[0] as DataRow)[columnHeader.Tag.ToString()].ToString()))
             {
@@ -213,6 +215,7 @@ namespace Nikita
                     {
                        
                         dates.Add(Convert.ToDateTime(item[columnHeader.Tag.ToString()].ToString()));
+                     //   MessageBox.Show(Convert.ToDateTime(item[columnHeader.Tag.ToString()].ToString()).ToString());
 
                     }else
                     {
@@ -236,6 +239,8 @@ namespace Nikita
                 filters.Add(prop, objs);
 
             }
+            Dates=new ObservableCollection<IHierarchy<DateTime>>();
+
             BuildDates(dates);
             Tree.ItemsSource = Dates;
             objs = filters[prop];
@@ -290,9 +295,7 @@ namespace Nikita
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Table.Sort = prop+ " ASC";
-            //////Table.RowFilter = string.Format(" [StartDate] >= '{0:00.00.yyyy}' AND [StartDate] <= '{0:dd.MM.yyyy}'", new DateTime(2021, 1, 1));
-            //Table.RowFilter = String.Format(CultureInfo.InvariantCulture.DateTimeFormat,
-            //          "StartDate = # {0} #", new DateTime(2021,1,1));
+           
             gr.ItemsSource = Table; ;
         }
 
@@ -300,6 +303,36 @@ namespace Nikita
         {
             Table.Sort = prop + " DESC";
             gr.ItemsSource = Table; 
+        }
+
+        private void Date_Checked(object sender, RoutedEventArgs e)
+        {
+            string content = (sender as CheckBox).Tag.ToString();
+            string value = (sender as CheckBox).Content.ToString();
+
+            if (content=="2")
+            {
+                string v = String.Format("StartDate >= # {0} # and StartDate<=# {1} #", DateTime.Parse(value).ToString("MM/01/yyyy"), DateTime.Parse(value).ToString("MM/31/yyyy"));
+                Table.RowFilter = v;
+            }
+            else if(content == "1")
+            {
+                string v = String.Format("StartDate >= # {0} # and StartDate<=# {1} #", DateTime.Parse(value).ToString("01/01/yyyy"), DateTime.Parse(value).ToString("12/31/yyyy"));
+                Table.RowFilter = v;
+            }
+            else if (content == "3")
+            {
+                string v = String.Format("StartDate = # {0}# ", DateTime.Parse(value).ToString("MM/dd/yyyy"));
+                Table.RowFilter = v;
+            }
+            gr.ItemsSource = Table;
+        }
+
+        private void Date_Unchecked(object sender, RoutedEventArgs e)
+        {
+            // string content = (sender as CheckBox).Content.ToString();
+            Table.RowFilter = "";
+            gr.ItemsSource = Table;
         }
     }
     class FilterObj : INotifyPropertyChanged
@@ -343,8 +376,8 @@ namespace Nikita
     }
     public class DateHierarchy : IHierarchy<DateTime>
     {
-        //public DateTime Value { get; set; }
-       public int Value { get; set; }
+        public object Value { get; set; }
+      // public int Value { get; set; }
 
         public IEnumerable<IHierarchy<DateTime>> Children { get; set; }
 
@@ -352,8 +385,8 @@ namespace Nikita
     }
     public interface IHierarchy<T>
     {
-        //T Value { get; set; }
-        int Value { get; set; }
+         object Value { get; set; }
+      //  int Value { get; set; }
         IEnumerable<IHierarchy<T>> Children { get; set; }
 
         int Level { get; set; }

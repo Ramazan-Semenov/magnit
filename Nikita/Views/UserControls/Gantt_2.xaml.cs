@@ -27,9 +27,15 @@ namespace Nikita
             Add(10,20,fo:Brushes.Gray, taskname: "Task_1",count: 31);
             Add(3, 8, taskname: "Task_2", count: 31);
             Add(4, 14,fo: Brushes.Aqua, taskname:"Task_3", count: 31);
-     
 
 
+            Button button = new Button() { Content="-------------", Background=Brushes.Black};
+            Grid.SetColumn(button,0);
+            Grid.SetRow(button, 0);
+            Grid.SetRowSpan(button,2);
+            Grid.SetColumnSpan(button, 4);
+            Grid1.Children.Add(button);
+            //Grid1.SetColumn(button,1);
             //  icTodoList.ItemsSource = items;
             DataContext = this;
         }

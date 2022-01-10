@@ -26,63 +26,65 @@ namespace Nikita
         public Window3()
         {
             InitializeComponent();
+            DataContext = new ViewModel.CurrentWindow();
              userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            //GridMain.Content =new Views.Pages.ListTask();
 
-            Cont.Visibility = Visibility.Collapsed;
-            Cont.Visibility = Visibility.Collapsed;
+            //Cont.Visibility = Visibility.Collapsed;
+            //Cont.Visibility = Visibility.Collapsed;
 
-            GetEntityList();
-            //DataContext = new ViewModel.ListTaskViewModel();
-            v.Content = userName;
+            //GetEntityList();
+            ////DataContext = new ViewModel.ListTaskViewModel();
+            //v.Content = userName;
         }
-        public IEnumerable<Model.Role> GetEntityList()
-        {
-            List<Model.Role> students = new List<Model.Role>();
-            string txt = @"select Role_name from Users
+//        public IEnumerable<Model.Role> GetEntityList()
+//        {
+//            List<Model.Role> students = new List<Model.Role>();
+//            string txt = @"select Role_name from Users
 
-join[User_Role] on Users.Id = User_Role.[User]
-join[Role] on User_Role.Role =[Role].Id
+//join[User_Role] on Users.Id = User_Role.[User]
+//join[Role] on User_Role.Role =[Role].Id
 
-where Users.[Name]= @N";
-            using (var connection = new SqlConnection(new Model.ConnectionDataBase().sqlConnectionString))
-            {
-                connection.Open();
-                students = connection.Query<Model.Role>(txt,new { N= userName }).ToList();
-                connection.Close();
-            }
+//where Users.[Name]= @N";
+//            using (var connection = new SqlConnection(new Model.ConnectionDataBase().sqlConnectionString))
+//            {
+//                connection.Open();
+//                students = connection.Query<Model.Role>(txt,new { N= userName }).ToList();
+//                connection.Close();
+//            }
 
-            foreach (var item in students)
-            {
-                if (item.Role_Name == "Админ")
-                {
-                    Cont.Visibility = Visibility.Visible;
-                }
-            }
+//            foreach (var item in students)
+//            {
+//                if (item.Role_Name == "Админ")
+//                {
+//                    Cont.Visibility = Visibility.Visible;
+//                }
+//            }
 
-            return students;
-        }
-        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            GridMain.Children.Clear();
-            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
-            {
-                case "ItemHome":
+//            return students;
+//        }
+        //private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    GridMain.Children.Clear();
+        //    switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+        //    {
+        //        case "ItemHome":
 
-                    GridMain.Children.Add(new ListTask());
-                    break;
-                case "ItemCreate":
-                    GridMain.Children.Add(new Gantt());
-                    break;
-                case "Cont":                  
-                    GridMain.Children.Add(new Views.ChiefViews.ChiefViewPage());
-                    break;
-                case "Coordinator":
-                    GridMain.Children.Add(new Views.coordinatorView.CoordinatorViewPage());
-                    break;
-                default:
-                    break;
-            }
-        }
+        //            GridMain.Children.Add(new ListTask());
+        //            break;
+        //        case "ItemCreate":
+        //            GridMain.Children.Add(new Gantt());
+        //            break;
+        //        case "Cont":                  
+        //            GridMain.Children.Add(new Views.ChiefViews.ChiefViewPage());
+        //            break;
+        //        case "Coordinator":
+        //            GridMain.Children.Add(new Views.coordinatorView.CoordinatorViewPage());
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {

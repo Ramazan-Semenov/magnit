@@ -7,7 +7,7 @@
 	xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
 	xmlns:control="http://filterdatagrid.control.com/2021"
         mc:Ignorable="d"
-        Height="597" Width="904" >
+        Height="597" Width="904" Loaded="UserControl_Loaded" >
     <UserControl.Resources>
         <ResourceDictionary Source="/Themes/Dictionary1.xaml"></ResourceDictionary>
     </UserControl.Resources>
@@ -42,7 +42,7 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button  Content="Удалить" HorizontalAlignment="Right" Width="100" Margin="0,13,265,-13" >
+                <Button  Click="Button_Click_1" Content="Удалить" HorizontalAlignment="Right" Width="100" Margin="0,13,265,-13" >
                     <!--<Button.Content>
                         <TextBlock FontFamily="SimSun-ExtB" VerticalAlignment="Center">Создать задачу на
 							<LineBreak/>основании
